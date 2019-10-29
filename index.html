@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Police Google Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body>
+  <h1>Know your city and it's dangers</h1>
+   <div>
+      <form action="/action_page.php">
+        Neighbourhood:<br>
+        <input type="text" name="Neighbourhood" value="Bay Street Corridor (76)"><br>
+        Crime type:<br>
+        <input type="text" name="MCI" value="Theft Over"><br><br>
+        <input type="submit" value="Submit">
+      </form>
+   </div>
+   <div id="map"></div>
+
+   <!-- MODAL CONTENT -->
+   <div class="modalOverlay hide" id="modalOverlay"></div>
+   <div class="modal hide" id="modal">
+     <button class="close-button" id="close-button">X</button>
+     <div class="modal-guts">
+        <h1>Assault for this region since 2014</h1>
+        <section id="options">
+            <canvas id="myChart"></canvas>
+        </section>
+        
+     </div>
+  </div>
+
+ 
+
+
+
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_D7Z3NIZb0BrY1SVPdqYyEg5sQktNqJ4"></script> 
+   <script src="assets/js/googleMaps.js"></script> 
+   <script src="assets/js/policeRecords.js"></script> 
+   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  </body>
+</html>
