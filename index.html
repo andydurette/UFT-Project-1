@@ -11,21 +11,66 @@
     <link rel="stylesheet" href="assets/css/modal.css">
   </head>
   <body>
+
+
+  <!-- Loading Screen -->
+  <section id="loadingScreen">
+      <h2>Loading Application data</h2>
+      <img src="assets/images/loading.svg" alt="Loading gif">
+  </section>
+
+  <!-- MODAL CONTENT -->
+  <div class="modalOverlay hide" id="modalOverlay"></div>
+  <div class="modal hide" id="modal">
+    <button class="close-button" id="close-button">X</button>
+    <div class="modal-guts">
+        <section id="options">
+            <h2>Assault for this region since 2014</h2>
+            <div class="chart-container" style="height: 80%; width: 80%;">
+              <canvas id="myChart"></canvas>
+            </div>
+        </section>
+        
+    </div>
+  </div>
+
+
   
 
   <!-- Navigation -->
   <nav class="topnav" id="myTopnav">
       <div>
-        <a href="#districtView" class="active">DISTRICTS</a>
+        <a href="#home" class="active">HOME</a>
+        <a href="#districtView">DISTRICTS</a>
         <a href="#neighbourhoodView">NEIGHBOURHOODS</a>
         <a href="#yearView">YEAR</a>
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" id="myMenuFunction">&#9776;</a>
       </div>
   </nav>
 
-  <!-- Page1 Map View -->       
+  <section id="home">
+      <img src="assets/images/logo-crest.png" alt="Toronto police crest">
+      <h1>Is My neighbourhood Safe?</h1>
+      <p>
+        We all wonder this, for the safety for ourselves and our loved ones. To 
+        help you to be aware and best consider where you want to live and work, we have built a tool
+        to help know the answer to just that question.
+      </p>
+      <p>
+        Below you can use the provided to compare Toronto's crime stastics by district, compare crime 
+        neighbourhood to neighbourhood and even see crime by neighbourhood year to year to year to see if it's
+        increasing or decreasing. 
+      </p>
+      <p>
+        A special thanks to the Toronto police who's open data has made this possible.
+      </p>
+
+      
+    </section>
+
+       
   <section id="districtView">
-    <h1>Know your city and it's dangers</h1>
+    <h2>Know your city and it's dangers</h2>
     <div>
         <form action="/action_page.php">
           Neighbourhood:<br>
@@ -38,8 +83,9 @@
     <div id="map"></div>
   </section>
 
+  
   <section id="neighbourhoodView">
-      <h1>Know your city and it's dangers</h1>
+      <h2>Know your city and it's dangers</h2>
       <div>
           <form action="/action_page.php">
             Neighbourhood:<br>
@@ -53,7 +99,7 @@
     </section>
 
     <section id="yearView">
-        <h1>Know your city and it's dangers</h1>
+        <h2>Know your city and it's dangers</h2>
         <div>
             <form action="/action_page.php">
               Neighbourhood:<br>
@@ -67,41 +113,9 @@
       </section>
 
 
-
-
-
-
-
-
-
-
-
-
-  <!-- Loading Screen -->
-  <section id="loadingScreen"></section>
-
-   <!-- MODAL CONTENT -->
-   <div class="modalOverlay hide" id="modalOverlay"></div>
-   <div class="modal hide" id="modal">
-     <button class="close-button" id="close-button">X</button>
-     <div class="modal-guts">
-        <section id="options">
-            <h1>Assault for this region since 2014</h1>
-            <div class="chart-container" style="height: 80%; width: 80%;">
-              <canvas id="myChart"></canvas>
-            </div>
-        </section>
-        
-     </div>
-  </div>
-
- 
-
-
-
    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_D7Z3NIZb0BrY1SVPdqYyEg5sQktNqJ4"></script> 
+   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
    <script src="assets/js/googleMaps.js"></script> 
    <script src="assets/js/policeRecords.js"></script> 
-   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  </body>
+   </body>
 </html>

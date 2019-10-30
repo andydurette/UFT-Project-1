@@ -9,12 +9,6 @@ fetch("https://cors-anywhere.herokuapp.com/https://opendata.arcgis.com/datasets/
   document.getElementById('loadingScreen').classList.add("hide");
 });
 
-
-/*}*/
-
-
-
-
  let callMCI = (district) => {  
     console.log(district);
 
@@ -22,7 +16,6 @@ fetch("https://cors-anywhere.herokuapp.com/https://opendata.arcgis.com/datasets/
       
     }
   
-
     Array.from(apiData).forEach((item) =>{
       if ( item.properties.Division === district ){
         if (MCI[`${item.properties.MCI}`]){
@@ -31,8 +24,6 @@ fetch("https://cors-anywhere.herokuapp.com/https://opendata.arcgis.com/datasets/
           MCI[`${item.properties.MCI}`] = 1
          }
       }});
-
-    
 
       let crimeKeys = Object.keys(MCI);
       let crimeValues = Object.values(MCI);
@@ -76,9 +67,7 @@ document.querySelector('.modal-guts h1').innerHTML = `Crime for district ${distr
 }
 
 
-
 //  Nav js
-
 document.getElementById('myMenuFunction').onclick = function(e){
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -89,7 +78,6 @@ document.getElementById('myMenuFunction').onclick = function(e){
 }
 
 // Smooth Scroll
-
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
       e.preventDefault();

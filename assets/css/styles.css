@@ -1,7 +1,6 @@
 /* Global Styles */
 
 
-
 /* Google maps */
 
 /* Always set the map height explicitly to define the size of the div * element that contains the map. */
@@ -18,8 +17,39 @@ html, body {
 
 /* Main pages general styles */
 
-#districtView, #neighbourhoodView, #yearView{
+#home{
+  background-color:#1b2b58;
+  color:white;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  text-align:center;
+}
+
+#home h1{
+  font-size:3em;
+}
+
+#home p{
+  padding:10px;
+  max-width:75%;
+}
+
+#home img{
+  width:177px;
+}
+
+#home, #districtView, #neighbourhoodView, #yearView{
   height:100vh;
-  width:100vw;
   padding-top:53px;
+  box-sizing: border-box;
+}
+
+
+@media only screen and (min-width: 768px) {
+  #home p{
+    padding: 0 10px;
+    max-width:50%;
+  }
 }
