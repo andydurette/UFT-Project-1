@@ -52,7 +52,7 @@
 
   <section id="home">
       <img src="assets/images/logo-crest.png" alt="Toronto police crest">
-      <h1>Is My neighbourhood Safe?</h1>
+      <h1>Is My Neighbourhood Safe?</h1>
       <p>
         We all wonder this, for the safety for ourselves and our loved ones. To 
         help you to be aware and best consider where you want to live and work, we have built a tool
@@ -86,9 +86,9 @@
 
     <div>
 
-        <form action="" method="post">
-            <label for="field4"><span>District 1</span>
-                <select name="field4" class="select-field">
+        <form action="">
+            <label for="district1"><span>District 1</span>
+                <select id="district1" name="field4" class="select-field">
                     <option value="General Question">General</option>
                     <option value="Advertise">Advertisement</option>
                     <option value="Partnership">Partnership</option>
@@ -96,9 +96,9 @@
             </label>
         </form>
 
-        <form action="" method="post">
-            <label for="field4"><span>Neighbourhood 1</span>
-                <select name="field4" class="select-field">
+        <form action="">
+            <label for="neighbourhood1"><span>Neighbourhood 1</span>
+                <select id="neighbourhood1" name="neighbourhood1" class="select-field">
                     <option value="General Question">General</option>
                     <option value="Advertise">Advertisement</option>
                     <option value="Partnership">Partnership</option>
@@ -107,11 +107,11 @@
         </form>
 
     </div>
-    <button id="neighbourhoodCompareButton">Compare</button>
+    
     <div>
-        <form action="" method="post">
-            <label for="field4"><span>District 2</span>
-                <select name="field4" class="select-field">
+        <form action="">
+            <label for="district2"><span>District 2</span>
+                <select id="district2" name="district2" class="select-field">
                     <option value="General Question">General</option>
                     <option value="Advertise">Advertisement</option>
                     <option value="Partnership">Partnership</option>
@@ -119,9 +119,9 @@
             </label>
         </form>
 
-        <form action="" method="post">
-            <label for="field4"><span>Neighbourhood 2</span>
-                <select name="field4" class="select-field">
+        <form action="">
+            <label for="neighbourhood2"><span>Neighbourhood 2</span>
+                <select id="neighbourhood2" name="neighbourhood2" class="select-field">
                     <option value="General Question">General</option>
                     <option value="Advertise">Advertisement</option>
                     <option value="Partnership">Partnership</option>
@@ -129,6 +129,8 @@
             </label>
         </form>
     </div>
+
+    <button id="neighbourhoodCompareButton">Compare</button>
 
 </div>
 <div class="chart-container">
@@ -169,7 +171,7 @@
    <!-- Distict Check -->
    <script src="assets/js/districtCheck.js"></script> 
    <!-- Neighbourhood compare -->
-   <script src="assets/js/neighbourHoodCompare.js"></script> 
+   <script src="assets/js/neighbourHoodCompare.js"></script>
    
 
    </body>

@@ -78,18 +78,21 @@ html, body {
 
 #neighbourhoodCompareBlock{
   display:flex;
+  flex-direction: column;
   justify-content:space-evenly;
   border: 1px solid black;
   padding: 10px;
   padding-top:20px;
   margin: 20px;
   border-radius: 5px;
+  text-align:center;
 }
 
 #neighbourhoodCompareBlock form span{
     width: 125px;
     margin-bottom: 20px;
     display: inline-block;
+    text-align:left;
 }
 
 #neighbourhoodCompareBlock div{
@@ -148,5 +151,21 @@ footer{
   #home p{
     padding: 0 10px;
     max-width:50%;
+  }
+
+  #neighbourhoodCompareBlock{
+    flex-direction: row;
+  }
+
+  #neighbourhoodCompareBlock div:nth-of-type(1) {
+    order:1;
+  }
+
+  #neighbourhoodCompareBlock button {
+    order: 2; 
+  }
+
+  #neighbourhoodCompareBlock div:nth-of-type(2) {
+    order:3;
   }
 }

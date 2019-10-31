@@ -1,28 +1,34 @@
 let neighbourHoodCompare = () =>{
 
-  let MCI = {
+  let district = {
       
   }
-  
-    Array.from(data.features).forEach((item) =>{
-      if ( item.properties.Division === district ){
-        if (assaults[`${item.properties.offence}`]){
-          //console.log(assaults[`${item.properties.offence}`]);
-          assaults[`${item.properties.offence}`] = assaults[`${item.properties.offence}`] + 1
-        }else{
-          assaults[`${item.properties.offence}`] = 1
-        }
-    }
-    })
-    console.log(assaults.Assault); 
-  
-    let assaultkeys = Object.keys(assaults);
-    let assaultValues = Object.values(assaults);
 
+  let neighbourhood = {
+      
+  }
+
+    Array.from(apiData).forEach((item) =>{
+       console.log(item);
+    });
 }
 
 
-// Bar chart
+document.querySelector("#neighbourhoodCompareButton").addEventListener("click", neighbourHoodCompare);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Base Bar chart
 new Chart(document.getElementById("neighbourhoodChart"), {
   type: 'bar',
   data: {
