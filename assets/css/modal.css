@@ -120,9 +120,14 @@
   text-align:center;
 }
 
-.chart-container{
-  position: relative; 
-  height:40vh; 
-  width:80vw;
-  margin-left: 8%;
+#modal .chart-container{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  margin-left:0;
+}
+
+#modal .chart-container .chart-container-container{
+  width:50%;
 }
