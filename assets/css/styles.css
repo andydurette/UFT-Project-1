@@ -17,6 +17,20 @@ html, body {
 
 /* Main pages general styles */
 
+
+#home, #districtView, #neighbourhoodView, #yearView{
+  height:100vh;
+  min-height:600px;
+  padding-top:53px;
+  box-sizing: border-box;
+}
+
+#districtView h2, #neighbourhoodView h2, #yearView h2{
+  text-align:center;
+}
+
+/* Individual pages general styles */
+
 #home{
   background-color:#1b2b58;
   color:white;
@@ -40,11 +54,52 @@ html, body {
   width:177px;
 }
 
-#home, #districtView, #neighbourhoodView, #yearView{
-  height:100vh;
-  padding-top:53px;
-  box-sizing: border-box;
+#districtView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
+#districtView p {
+  max-width:75%;
+  text-align:center;
+  margin:0 auto;
+  margin-bottom:25px;
+}
+
+#neighbourhoodView{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#neighbourhoodCompareBlock{
+  display:flex;
+  justify-content:space-evenly;
+}
+
+#neighbourhoodCompareBlock div{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+#neighbourhoodCompareButton{
+  border:0px solid transparent;
+  border-radius:5px;
+  background-color: #f1ba4a;
+  color: #000;
+  font-weight:bold;
+}
+
+#neighbourhoodCompareButton:hover{
+  background-color: #d19e43;
+  cursor:pointer;
+}
+
+
+
+
 
 
 @media only screen and (min-width: 768px) {

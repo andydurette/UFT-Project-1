@@ -30,7 +30,6 @@
               <canvas id="myChart"></canvas>
             </div>
         </section>
-        
     </div>
   </div>
 
@@ -71,30 +70,68 @@
        
   <section id="districtView">
     <h2>Know your city and it's dangers</h2>
-    <div>
-        <form action="/action_page.php">
-          Neighbourhood:<br>
-          <input type="text" name="Neighbourhood" value="Bay Street Corridor (76)"><br>
-          Crime type:<br>
-          <input type="text" name="MCI" value="Theft Over"><br><br>
-          <input type="submit" value="Submit">
-        </form>
-    </div>
+    <p>Each marker on the map below belongs to a police district, click one to see the crime from that district since 2014</p>
+ 
     <div id="map"></div>
   </section>
 
   
   <section id="neighbourhoodView">
       <h2>Know your city and it's dangers</h2>
-      <div>
-          <form action="/action_page.php">
-            Neighbourhood:<br>
-            <input type="text" name="Neighbourhood" value="Bay Street Corridor (76)"><br>
-            Crime type:<br>
-            <input type="text" name="MCI" value="Theft Over"><br><br>
-            <input type="submit" value="Submit">
-          </form>
-      </div>
+
+<div id="neighbourhoodCompareBlock">
+
+    <div>
+
+        <form action="" method="post">
+            <label for="field4"><span>District 1</span>
+                <select name="field4" class="select-field">
+                    <option value="General Question">General</option>
+                    <option value="Advertise">Advertisement</option>
+                    <option value="Partnership">Partnership</option>
+                </select>
+            </label>
+        </form>
+
+        <form action="" method="post">
+            <label for="field4"><span>Neighbourhood 1</span>
+                <select name="field4" class="select-field">
+                    <option value="General Question">General</option>
+                    <option value="Advertise">Advertisement</option>
+                    <option value="Partnership">Partnership</option>
+                </select>
+            </label>
+        </form>
+
+    </div>
+    <button id="neighbourhoodCompareButton">Compare</button>
+    <div>
+        <form action="" method="post">
+            <label for="field4"><span>District 2</span>
+                <select name="field4" class="select-field">
+                    <option value="General Question">General</option>
+                    <option value="Advertise">Advertisement</option>
+                    <option value="Partnership">Partnership</option>
+                </select>
+            </label>
+        </form>
+
+        <form action="" method="post">
+            <label for="field4"><span>Neighbourhood 2</span>
+                <select name="field4" class="select-field">
+                    <option value="General Question">General</option>
+                    <option value="Advertise">Advertisement</option>
+                    <option value="Partnership">Partnership</option>
+                </select>
+            </label>
+        </form>
+    </div>
+
+</div>
+<h2>Assault for this region since 2014</h2>
+<div class="chart-container" style="height: 80%; width: 80%;">
+  <canvas id="neighbourhoodChart"></canvas>
+</div>
      
     </section>
 
@@ -115,7 +152,17 @@
 
    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_D7Z3NIZb0BrY1SVPdqYyEg5sQktNqJ4"></script> 
    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+   <!-- Calls initial data -->
+   <script src="assets/js/recordsCall.js"></script>
+   <!-- Sets up Google maps -->
    <script src="assets/js/googleMaps.js"></script> 
-   <script src="assets/js/policeRecords.js"></script> 
+   <!-- Handles nav smooth scroll and -->
+   <script src="assets/js/navControls.js"></script>
+   <!-- Distict Check -->
+   <script src="assets/js/districtCheck.js"></script> 
+   <!-- Neighbourhood compare -->
+   <script src="assets/js/neighbourHoodCompare.js"></script> 
+   
+
    </body>
 </html>
