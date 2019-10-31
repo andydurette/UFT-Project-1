@@ -164,7 +164,7 @@ function addMarker(props){
       //infoWindow.open(map,marker);
       //console.log(props.division);
       let division = String(props.division);
-      console.log(callAssaults(division));
+      console.log(callMCI(division));
     })
     }
 }

@@ -1,123 +1,171 @@
- /* Always set the map height explicitly to define the size of the div * element that contains the map. */
-       #map {
-        height: 60%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        font-family: 'Roboto', sans-serif;
-      }
+/* Global Styles */
 
-/* Modal */
 
-.modal {
-  /* This way it could be display flex or grid or whatever also. */
-  display: block;
-  
-  /* Probably need media queries here */
-  display: flex;
+/* Google maps */
 
-  width: 600px;
-  max-width: 100%;
-  max-height: 100%;
-  position: fixed;
-  z-index: 100;
-  left: 50%;
-  top: 50%;
-  overflow-y:auto;
-  
-  /* Use this for centering if unknown width/height */
-  transform: translate(-50%, -50%);
-  
-  /* If known, negative margins are probably better (less chance of blurry text). */
-  /* margin: -200px 0 0 -200px; */
-  
-  background: white;
-  box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+/* Always set the map height explicitly to define the size of the div * element that contains the map. */
+  #map {
+  height: 60%;
 }
-.closed {
-  display: none;
-}
-
-.modalOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+/* Optional: Makes the sample page fill the window. */
+html, body {
   height: 100%;
-  z-index: 50;
-  
-  background: rgba(0, 0, 0, 0.6);
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
-.modal-guts {
+
+/* Main pages general styles */
+
+
+#home, #districtView, #neighbourhoodView, #yearView{
+  padding-top: 83px;
+  box-sizing: border-box;
+}
+
+#districtView{
+  height:100vh;
+  min-height:768px;
+}
+
+#districtView h2, #neighbourhoodView h2, #yearView h2{
+  text-align:center;
+}
+
+/* Individual pages general styles */
+
+#home{
+  background-color:#1b2b58;
+  color:white;
   display: flex;
   flex-direction: column;
+  justify-content:center;
   align-items: center;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  padding: 20px 50px 20px 20px;
+  text-align:center;
+}
+
+#home h1{
+  font-size:3em;
+}
+
+#home p{
+  padding:10px;
+  max-width:75%;
+}
+
+#home img{
+  width:177px;
+}
+
+#districtView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#districtView p {
+  max-width:75%;
+  text-align:center;
+  margin:0 auto;
+  margin-bottom:25px;
+}
+
+#neighbourhoodView{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#neighbourhoodCompareBlock{
+  display:flex;
+  flex-direction: column;
+  justify-content:space-evenly;
+  border: 1px solid black;
+  padding: 10px;
+  padding-top:20px;
+  margin: 20px;
+  border-radius: 5px;
+  text-align:center;
+}
+
+#neighbourhoodCompareBlock form span{
+    width: 125px;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-align:left;
+}
+
+#neighbourhoodCompareBlock div{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+#neighbourhoodCompareButton{
+  border:0px solid transparent;
+  border-radius:5px;
+  background-color: #f1ba4a;
+  color: #000;
+  font-weight:bold;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#neighbourhoodCompareButton:hover{
+  background-color: #d19e43;
+  cursor:pointer;
+}
+
+#neighbourhoodView .chart-container{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  margin-left:0;
+}
+
+#neighbourhoodView .chart-container .chart-container-container{
+  width:50%;
+}
+
+
+/* Footer */
+
+footer{
+  text-align:center;
+  background-color:#262625;
+  color:white;
+  height:50px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
 }
 
 
 
-.modal-guts {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 20px;
-}
+@media only screen and (min-width: 768px) {
+  #home, #districtView, #neighbourhoodView, #yearView{
+    height:100vh;
+  }
 
-.modal ul {
-  margin: 10px 0 10px 30px;
-}
-.modal li, .modal p {
-  margin: 0 0 10px 0;
-}
-.modal h1 {
-  margin: 0 0 20px 0;
-  padding: 0 50px;
-}
+  #home p{
+    padding: 0 10px;
+    max-width:50%;
+  }
 
-.modal .close-button {
-  position: absolute;
-  cursor: pointer;
-  
-  /* don't need to go crazy with z-index here, just sits over .modal-guts */
-  z-index: 1;
-  
-  top: 10px;
-  
-  /* needs to look OK with or without scrollbar */
-  right: 20px;
-  
-  border: 0;
-  background: black;
-  color: white;
-  padding: 5px 10px;
-  font-size: 1.3rem;
-}
+  #neighbourhoodCompareBlock{
+    flex-direction: row;
+  }
 
-.open-button {
-  border: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: lightgreen;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-size: 21px;
-}
+  #neighbourhoodCompareBlock div:nth-of-type(1) {
+    order:1;
+  }
 
-.hide{
-  display:none;
-}
+  #neighbourhoodCompareBlock button {
+    order: 2; 
+  }
 
-#modal, #options{
-  height:100vh;
-  width:100vw;
+  #neighbourhoodCompareBlock div:nth-of-type(2) {
+    order:3;
+  }
 }
-
