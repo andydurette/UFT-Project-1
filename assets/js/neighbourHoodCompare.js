@@ -1,27 +1,13 @@
 let neighbourHoodCompare = () =>{
 
-  let district = {
-      
-  }
+ 
+  let neighbourhood = {};
 
-  let neighbourhood = {
-      
-  }
 
-    Array.from(apiData).forEach((item) =>{
-       console.log(item);
-    });
 }
 
 
 document.querySelector("#neighbourhoodCompareButton").addEventListener("click", neighbourHoodCompare);
-
-
-
-
-
-
-
 
 
 

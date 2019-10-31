@@ -7,4 +7,38 @@ fetch("https://cors-anywhere.herokuapp.com/https://opendata.arcgis.com/datasets/
   apiData = data.features;
   console.log(apiData);
   document.getElementById('loadingScreen').classList.add("hide");
+  formset();
 });
+
+// Neighbourhood form setting
+
+let formset = () =>{
+
+  let division = {};
+  Array.from(apiData).forEach((item) =>{
+      if (division[`${item.properties.Division}`]){
+  
+      }else{
+        division[`${item.properties.Division}`] = item.properties.Division
+       }
+  });
+
+  let district1 = document.querySelector("#district1");
+  let district2 = document.querySelector("#district2");
+  let divisionKeys = Object.keys(division).sort();
+
+  Array.from(divisionKeys).forEach((item) =>{
+    let option = document.createElement('option');
+    option.innerHTML = item;
+    option.setAttribute("value", item );
+    district1.appendChild(option);
+  });
+
+  Array.from(divisionKeys).forEach((item) =>{
+    let option = document.createElement('option');
+    option.innerHTML = item;
+    option.setAttribute("value", item );
+    district2.appendChild(option);
+  });
+
+}
