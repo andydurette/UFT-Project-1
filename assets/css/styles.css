@@ -19,10 +19,13 @@ html, body {
 
 
 #home, #districtView, #neighbourhoodView, #yearView{
-  height:100vh;
-  min-height:600px;
-  padding-top:53px;
+  padding-top: 83px;
   box-sizing: border-box;
+}
+
+#districtView{
+  height:100vh;
+  min-height:768px;
 }
 
 #districtView h2, #neighbourhoodView h2, #yearView h2{
@@ -138,6 +141,10 @@ footer{
 
 
 @media only screen and (min-width: 768px) {
+  #home, #districtView, #neighbourhoodView, #yearView{
+    height:100vh;
+  }
+
   #home p{
     padding: 0 10px;
     max-width:50%;
