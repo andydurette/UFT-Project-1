@@ -1,4 +1,3 @@
-
  let callMCI = (district) => {  
   console.log(district);
 
@@ -7,11 +6,11 @@
   }
 
   Array.from(apiData).forEach((item) =>{
-    if ( item.properties.Division === district ){
-      if (MCI[`${item.properties.MCI}`]){
-        MCI[`${item.properties.MCI}`] = MCI[`${item.properties.MCI}`] + 1
+    if ( item.attributes.Division === district ){
+      if (MCI[`${item.attributes.MCI}`]){
+        MCI[`${item.attributes.MCI}`] = MCI[`${item.attributes.MCI}`] + 1
       }else{
-        MCI[`${item.properties.MCI}`] = 1
+        MCI[`${item.attributes.MCI}`] = 1
        }
     }});
 

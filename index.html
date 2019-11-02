@@ -32,7 +32,6 @@
                 </div>
               </div>
             </section>
-        </section>
     </div>
   </div>
 
@@ -80,28 +79,25 @@
 
   
   <section id="neighbourhoodView">
-      <h2>Compare crime rates between different neighbourhoods</h2>
+      <h2>Compare crime rates between different neighbourhoods since 2014</h2>
 
 <div id="neighbourhoodCompareBlock">
 
     <div>
 
-        <form action="">
+        <form>
             <label for="district1"><span>District 1</span>
                 <select id="district1" name="field4" class="select-field">
-                    <option value="General Question">General</option>
-                    <option value="Advertise">Advertisement</option>
-                    <option value="Partnership">Partnership</option>
+                    <option value="Empty">--</option>
+
                 </select>
             </label>
         </form>
 
-        <form action="">
+        <form>
             <label for="neighbourhood1"><span>Neighbourhood 1</span>
-                <select id="neighbourhood1" name="neighbourhood1" class="select-field">
-                    <option value="General Question">General</option>
-                    <option value="Advertise">Advertisement</option>
-                    <option value="Partnership">Partnership</option>
+                <select id="neighbourhood1" name="neighbourhood1" class="select-field" disabled>
+                  <option value="Empty">--</option>
                 </select>
             </label>
         </form>
@@ -109,28 +105,24 @@
     </div>
     
     <div>
-        <form action="">
+        <form>
             <label for="district2"><span>District 2</span>
                 <select id="district2" name="district2" class="select-field">
-                    <option value="General Question">General</option>
-                    <option value="Advertise">Advertisement</option>
-                    <option value="Partnership">Partnership</option>
+                  <option value="Empty">--</option>
                 </select>
             </label>
         </form>
 
-        <form action="">
+        <form>
             <label for="neighbourhood2"><span>Neighbourhood 2</span>
-                <select id="neighbourhood2" name="neighbourhood2" class="select-field">
-                    <option value="General Question">General</option>
-                    <option value="Advertise">Advertisement</option>
-                    <option value="Partnership">Partnership</option>
+                <select id="neighbourhood2" name="neighbourhood2" class="select-field" disabled>
+                  <option value="Empty">--</option>
                 </select>
             </label>
         </form>
     </div>
 
-    <button id="neighbourhoodCompareButton">Compare</button>
+    <button id="neighbourhoodCompareButton" class="disabled" disabled>Compare</button>
 
 </div>
 <div class="chart-container">
@@ -142,16 +134,56 @@
     </section>
 
     <section id="yearView">
-        <h2>Know your city and it's dangers</h2>
+        <h2>Is your neighbourhood getting better or worse?</h2>
+
+        <div id="yearViewCompareBlock">
         <div>
-            <form action="/action_page.php">
-              Neighbourhood:<br>
-              <input type="text" name="Neighbourhood" value="Bay Street Corridor (76)"><br>
-              Crime type:<br>
-              <input type="text" name="MCI" value="Theft Over"><br><br>
-              <input type="submit" value="Submit">
-            </form>
-        </div>
+
+          <form>
+              <label for="district"><span>District</span>
+                  <select id="district" name="field4" class="select-field">
+                      <option value="Empty">--</option>
+  
+                  </select>
+              </label>
+          </form>
+  
+          <form>
+              <label for="neighbourhood"><span>Neighbourhood</span>
+                  <select id="neighbourhood" name="neighbourhood" class="select-field" disabled>
+                    <option value="Empty">--</option>
+                  </select>
+              </label>
+          </form>
+  
+      </div>
+      
+      <div>
+          <form>
+              <label for="year1"><span>Year 1</span>
+                  <select id="year1" name="year1" class="select-field">
+                    <option value="Empty">--</option>
+                  </select>
+              </label>
+          </form>
+  
+          <form>
+              <label for="year2"><span>year 2</span>
+                  <select id="year2" name="year2" class="select-field" disabled>
+                    <option value="Empty">--</option>
+                  </select>
+              </label>
+          </form>
+      </div>
+  
+      <button id="yearViewCompareButton" class="disabled" disabled>Compare</button>
+  
+  </div>
+  <div class="chart-container">
+      <div class="chart-container-container">
+        <canvas id="yearChart"></canvas>
+      </div>
+  </div>
     
       </section>
 
@@ -172,6 +204,9 @@
    <script src="assets/js/districtCheck.js"></script> 
    <!-- Neighbourhood compare -->
    <script src="assets/js/neighbourHoodCompare.js"></script>
+   <!-- Neighbourhood Year compare 
+   <script src="assets/js/neighbourHoodYearCompare.js"></script>
+   -->
    
 
    </body>
