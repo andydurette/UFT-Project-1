@@ -2,7 +2,6 @@ let district1 = document.querySelector("#district1");
 let district2 = document.querySelector("#district2");
 let neighbourhood1 = document.querySelector("#neighbourhood1");
 let neighbourhood2 = document.querySelector("#neighbourhood2");
-
 district1.addEventListener("change", () => {
   
   let neighbourhoodList1 = {};
@@ -13,8 +12,6 @@ district1.addEventListener("change", () => {
     document.querySelector("#neighbourhoodCompareButton").disabled = false;
     document.querySelector("#neighbourhoodCompareButton").classList.remove('disabled');
   }
-
-
   if(district1.value === "Empty" ){
     neighbourhood1.disabled = true;
   }else{
@@ -36,8 +33,6 @@ district1.addEventListener("change", () => {
     });
     }
 })
-
-
 district2.addEventListener("change", () => {
   
   let neighbourhoodList2 = {};
@@ -48,7 +43,6 @@ district2.addEventListener("change", () => {
     document.querySelector("#neighbourhoodCompareButton").disabled = false;
     document.querySelector("#neighbourhoodCompareButton").classList.remove('disabled');
   }
-
   if(district2.value === "Empty" ){
     neighbourhood2.disabled = true;
   }else{
@@ -70,14 +64,11 @@ district2.addEventListener("change", () => {
     });
     }
 })
-
-
 // Compares called data
 let neighbourHoodCompare = () =>{
   
   //DATASET1
   let Neighbourhood1MCI = {};
-
   Array.from(apiData).forEach((item) =>{
     if ( item.attributes.Neighbourhood === neighbourhood1.value ){
       //console.log(item);
@@ -87,17 +78,13 @@ let neighbourHoodCompare = () =>{
         Neighbourhood1MCI[`${item.attributes.MCI}`] = 1
        }
     }});
-
     let crimeKeys1 = Object.keys(Neighbourhood1MCI);
     let crimeValues1 = Object.values(Neighbourhood1MCI);
     console.log(crimeKeys1);
     console.log(crimeValues1);
-
     
-
     //DATASET2
     let Neighbourhood2MCI = {};
-
     Array.from(apiData).forEach((item) =>{
       if ( item.attributes.Neighbourhood === neighbourhood2.value ){
         //console.log(item);
@@ -112,8 +99,6 @@ let neighbourHoodCompare = () =>{
       let crimeValues2 = Object.values(Neighbourhood2MCI);
       console.log(crimeKeys2);
       console.log(crimeValues2);
-
-
   //Compare chart
  
 var color = Chart.helpers.color; 
@@ -131,11 +116,8 @@ var horizontalBarChartData = {
       borderColor: "#8e5ea2",
       data: crimeValues2
   }]
-
 };
-
 //console.log(horizontalBarChartData);
-
 //Horizontal Bar Chart
 new Chart(document.getElementById("neighbourhoodChart"),{
     type: 'horizontalBar',
@@ -157,11 +139,7 @@ new Chart(document.getElementById("neighbourhoodChart"),{
     }
   });
 }
-
 document.querySelector("#neighbourhoodCompareButton").addEventListener("click", neighbourHoodCompare);
-
-
-
 //Test Var: to be replaced by actual data
 var color = Chart.helpers.color; 
 var horizontalBarChartData = {
@@ -190,11 +168,8 @@ var horizontalBarChartData = {
         0
      ]
   }]
-
 };
-
 //console.log(horizontalBarChartData);
-
 //Horizontal Bar Chart
 new Chart(document.getElementById("neighbourhoodChart"),{
     type: 'horizontalBar',
