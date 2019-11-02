@@ -1,11 +1,12 @@
-let districtYear1 = document.querySelector("#district1");
-let neighbourhoodYear1 = document.querySelector("#neighbourhoodYear1");
+let districtYearCompare = document.querySelector("#districtYearCompare");
+let neigbourhoodYearCompare = document.querySelector("#neighbourhoodYearCompare");
+let year1 = document.querySelector("#year1");
+let year2 = document.querySelector("#year2");
 
-
-districtYear1.addEventListener("change", () => {
+districtYearCompare.addEventListener("change", () => {
   
-  let neighbourhoodYear1 = {};
-  if(district1.value === "Empty" || district2.value === "Empty"  ){
+  let neighbourhoodYearList = {};
+  if(districtYearCompare.value === "Empty" ){
     document.querySelector("#yearViewCompareButton").disabled = true;
     document.querySelector("#yearViewCompareButton").classList.add('disabled');
   }else{
@@ -14,70 +15,68 @@ districtYear1.addEventListener("change", () => {
   }
 
 
-  if(district1.value === "Empty" ){
-    neighbourhoodYear1.disabled = true;
+  if(districtYearCompare.value === "Empty" ){
+    neigbourhoodYearCompare.disabled = true;
   }else{
-    neighbourhoodYear1.disabled = false;
+    neigbourhoodYearCompare.disabled = false;
     Array.from(apiData).forEach((item) =>{
-      if(item.attributes.Division === district1.value){
-        if (!neighbourhoodList1[`${item.attributes.Neighbourhood}`]){
-          neighbourhoodList1[`${item.attributes.Neighbourhood}`] = item.attributes.Neighbourhood
+      if(item.attributes.Division === districtYearCompare.value){
+        if (!neighbourhoodYearList[`${item.attributes.Neighbourhood}`]){
+          neighbourhoodYearList[`${item.attributes.Neighbourhood}`] = item.attributes.Neighbourhood
         }
       }
     })
-    neighbourhoodYear1.innerHTML = '';
-    let neighbourhoodList1Keys = Object.keys(neighbourhoodList1).sort();    
-    Array.from(neighbourhoodList1Keys).forEach((item) =>{
+    neigbourhoodYearCompare.innerHTML = '';
+    let neighbourhoodYearListKeys = Object.keys(neighbourhoodYearList).sort();    
+    Array.from(neighbourhoodYearListKeys).forEach((item) =>{
       let option = document.createElement('option');
       option.innerHTML = item;
       option.setAttribute("value", item );
-      neighbourhoodYear1.appendChild(option);
+      neigbourhoodYearCompare.appendChild(option);
     });
     }
 })
 
-
-
 // Compares called data
-let yearViewCompareButton = () =>{
+let neighbourHoodYearCompare = () =>{
   
   //DATASET1
-  let NeighbourhoodYear1MCI = {};
+  let Neighbourhood1MCI = {};
 
   Array.from(apiData).forEach((item) =>{
-    if ( item.attributes.Neighbourhood === neighbourhoodYear1.value ){
+    if ( item.attributes.Neighbourhood === neighbourhoodYearCompare.value && item.attributes.reportedyear === Number(year1.value) ){
       //console.log(item);
-      if (NeighbourhoodYear1MCI[`${item.attributes.MCI}`]){
-        NeighbourhoodYear1MCI[`${item.attributes.MCI}`] = NeighbourhoodYear1MCI[`${item.attributes.MCI}`] + 1
+      if (Neighbourhood1MCI[`${item.attributes.MCI}`]){
+        Neighbourhood1MCI[`${item.attributes.MCI}`] = Neighbourhood1MCI[`${item.attributes.MCI}`] + 1
       }else{
-        NeighbourhoodYear1MCI[`${item.attributes.MCI}`] = 1
+        Neighbourhood1MCI[`${item.attributes.MCI}`] = 1
        }
     }});
 
-    let crimeKeys1 = Object.keys(NeighbourhoodYear1MCI);
-    let crimeValues1 = Object.values(NeighbourhoodYear1MCI);
+    let crimeKeys1 = Object.keys(Neighbourhood1MCI);
+    let crimeValues1 = Object.values(Neighbourhood1MCI);
     console.log(crimeKeys1);
     console.log(crimeValues1);
 
     
 
-    //DATASET2
-    let Neighbourhood2MCI = {};
+   //DATASET1
+  let Neighbourhood2MCI = {};
 
-    Array.from(apiData).forEach((item) =>{
-      if ( item.attributes.Neighbourhood === neighbourhood2.value ){
-        //console.log(item);
-        if (Neighbourhood2MCI[`${item.attributes.MCI}`]){
-          Neighbourhood2MCI[`${item.attributes.MCI}`] = Neighbourhood2MCI[`${item.attributes.MCI}`] + 1
-        }else{
-          Neighbourhood2MCI[`${item.attributes.MCI}`] = 1
-         }
-      }});
-  
-      let crimeKeys2 = Object.keys(Neighbourhood2MCI);
-      let crimeValues2 = Object.values(Neighbourhood2MCI);
-      console.log(crimeKeys2);
-      console.log(crimeValues2);
+  Array.from(apiData).forEach((item) =>{
+    if ( item.attributes.Neighbourhood === neighbourhoodYearCompare.value && item.attributes.reportedyear === Number(year2.value) ){
+      //console.log(item);
+      if (Neighbourhood2MCI[`${item.attributes.MCI}`]){
+        Neighbourhood2MCI[`${item.attributes.MCI}`] = Neighbourhood2MCI[`${item.attributes.MCI}`] + 1
+      }else{
+        Neighbourhood2MCI[`${item.attributes.MCI}`] = 1
+       }
+    }});
+
+    let crimeKeys2 = Object.keys(Neighbourhood2MCI);
+    let crimeValues2 = Object.values(Neighbourhood2MCI);
+    console.log(crimeKeys2);
+    console.log(crimeValues2);
 
 
   //Compare chart
@@ -103,7 +102,7 @@ var horizontalBarChartData = {
 //console.log(horizontalBarChartData);
 
 //Horizontal Bar Chart
-new Chart(document.getElementById("neighbourhoodChart"),{
+new Chart(document.getElementById("yearChart"),{
     type: 'horizontalBar',
     data: horizontalBarChartData,
     options: {
@@ -124,9 +123,7 @@ new Chart(document.getElementById("neighbourhoodChart"),{
   });
 }
 
-document.querySelector("#neighbourhoodCompareButton").addEventListener("click", neighbourHoodCompare);
-
-
+document.querySelector("#yearViewCompareButton").addEventListener("click", neighbourHoodYearCompare);
 
 //Test Var: to be replaced by actual data
 var color = Chart.helpers.color; 

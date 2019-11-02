@@ -14,7 +14,7 @@ let dataFetch = () =>{
       resultOffSet += 32000;
       dataCalled += 32000;
       if( dataCalled < dataMax ){
-        dataFetch()
+        dataFetch();
       }else{
         loadHide();
         formset();
@@ -49,9 +49,18 @@ let formset = () =>{
        }
   });
 
+  let districtYearCompare = document.querySelector("#districtYearCompare");
   let district1 = document.querySelector("#district1");
   let district2 = document.querySelector("#district2");
+  
   let divisionKeys = Object.keys(division).sort();
+
+  Array.from(divisionKeys).forEach((item) =>{
+    let option = document.createElement('option');
+    option.innerHTML = item;
+    option.setAttribute("value", item );
+    districtYearCompare.appendChild(option);
+  });
 
   Array.from(divisionKeys).forEach((item) =>{
     let option = document.createElement('option');
@@ -66,6 +75,37 @@ let formset = () =>{
     option.setAttribute("value", item );
     district2.appendChild(option);
   });
+
+  let dataYears = {};
+  Array.from(apiData[0]).forEach((item) =>{
+      if (dataYears[`${item.attributes.reportedyear}`]){
+  
+      }else{
+        dataYears[`${item.attributes.reportedyear}`] = item.attributes.reportedyear
+       }
+  });
+
+  console.log(dataYears);
+
+  let year1 = document.querySelector("#year1");
+  let year2 = document.querySelector("#year2");
+
+  let dataYearsKeys = Object.keys(dataYears).sort();
+
+  Array.from(dataYearsKeys).forEach((item) =>{
+    let option = document.createElement('option');
+    option.innerHTML = item;
+    option.setAttribute("value", item );
+    year1.appendChild(option);
+  });
+
+  Array.from(dataYearsKeys).forEach((item) =>{
+    let option = document.createElement('option');
+    option.innerHTML = item;
+    option.setAttribute("value", item );
+    year2.appendChild(option);
+  });
+
 
 }
 
