@@ -1,5 +1,5 @@
 let districtYear1 = document.querySelector("#district1");
-let neighbourhoodYear1 = document.querySelector("#neighbourhood1");
+let neighbourhoodYear1 = document.querySelector("#neighbourhoodYear1");
 
 
 districtYear1.addEventListener("change", () => {
@@ -15,9 +15,9 @@ districtYear1.addEventListener("change", () => {
 
 
   if(district1.value === "Empty" ){
-    neighbourhood1.disabled = true;
+    neighbourhoodYear1.disabled = true;
   }else{
-    neighbourhood1.disabled = false;
+    neighbourhoodYear1.disabled = false;
     Array.from(apiData).forEach((item) =>{
       if(item.attributes.Division === district1.value){
         if (!neighbourhoodList1[`${item.attributes.Neighbourhood}`]){
@@ -25,13 +25,13 @@ districtYear1.addEventListener("change", () => {
         }
       }
     })
-    neighbourhood1.innerHTML = '';
+    neighbourhoodYear1.innerHTML = '';
     let neighbourhoodList1Keys = Object.keys(neighbourhoodList1).sort();    
     Array.from(neighbourhoodList1Keys).forEach((item) =>{
       let option = document.createElement('option');
       option.innerHTML = item;
       option.setAttribute("value", item );
-      neighbourhood1.appendChild(option);
+      neighbourhoodYear1.appendChild(option);
     });
     }
 })
@@ -42,20 +42,20 @@ districtYear1.addEventListener("change", () => {
 let yearViewCompareButton = () =>{
   
   //DATASET1
-  let Neighbourhood1MCI = {};
+  let NeighbourhoodYear1MCI = {};
 
   Array.from(apiData).forEach((item) =>{
-    if ( item.attributes.Neighbourhood === neighbourhood1.value ){
+    if ( item.attributes.Neighbourhood === neighbourhoodYear1.value ){
       //console.log(item);
-      if (Neighbourhood1MCI[`${item.attributes.MCI}`]){
-        Neighbourhood1MCI[`${item.attributes.MCI}`] = Neighbourhood1MCI[`${item.attributes.MCI}`] + 1
+      if (NeighbourhoodYear1MCI[`${item.attributes.MCI}`]){
+        NeighbourhoodYear1MCI[`${item.attributes.MCI}`] = NeighbourhoodYear1MCI[`${item.attributes.MCI}`] + 1
       }else{
-        Neighbourhood1MCI[`${item.attributes.MCI}`] = 1
+        NeighbourhoodYear1MCI[`${item.attributes.MCI}`] = 1
        }
     }});
 
-    let crimeKeys1 = Object.keys(Neighbourhood1MCI);
-    let crimeValues1 = Object.values(Neighbourhood1MCI);
+    let crimeKeys1 = Object.keys(NeighbourhoodYear1MCI);
+    let crimeValues1 = Object.values(NeighbourhoodYear1MCI);
     console.log(crimeKeys1);
     console.log(crimeValues1);
 
