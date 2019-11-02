@@ -1,25 +1,51 @@
-let apiData;
+// let apiData;
+let apiData = [];
+let dataMax;
+let dataCalled = 0;
+let resultOffSet = 0;
+let loadHide = () => { document.getElementById('loadingScreen').classList.add("hide") };
 
-// To much info cannot store it to localStorage
-fetch("https://cors-anywhere.herokuapp.com/https://opendata.arcgis.com/datasets/98f7dde610b54b9081dfca80be453ac9_0.geojson")
+
+let dataFetch = () =>{
+    fetch(`https://services.arcgis.com/S9th0jAJ7bqgIRjw/arcgis/rest/services/MCI_2014_to_2018/FeatureServer/0/query?where=1%3D1&outFields=reportedyear,MCI,Division,Neighbourhood&outSR=4326&resultRecordCount=50000&resultType=standard&resultOffset=${resultOffSet}&f=json`)
+    .then((resp) => resp.json())
+    .then((data) => {
+      apiData.push(data.features);
+      resultOffSet += 32000;
+      dataCalled += 32000;
+      if( dataCalled < dataMax ){
+        dataFetch()
+      }else{
+        loadHide();
+        formset();
+        apiData = apiData.flat();
+        console.log(apiData);
+     }
+    })
+}
+
+
+
+fetch("https://services.arcgis.com/S9th0jAJ7bqgIRjw/arcgis/rest/services/MCI_2014_to_2018/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json")
 .then((resp) => resp.json())
 .then((data) => {
-  apiData = data.features;
-  console.log(apiData);
-  document.getElementById('loadingScreen').classList.add("hide");
-  formset();
-});
+  dataMax = data.count;
+}).then( 
+  dataFetch
+);
+
+
 
 // Neighbourhood form setting
 
 let formset = () =>{
 
   let division = {};
-  Array.from(apiData).forEach((item) =>{
-      if (division[`${item.properties.Division}`]){
+  Array.from(apiData[0]).forEach((item) =>{
+      if (division[`${item.attributes.Division}`]){
   
       }else{
-        division[`${item.properties.Division}`] = item.properties.Division
+        division[`${item.attributes.Division}`] = item.attributes.Division
        }
   });
 
@@ -42,3 +68,4 @@ let formset = () =>{
   });
 
 }
+

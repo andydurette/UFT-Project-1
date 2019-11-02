@@ -1,17 +1,16 @@
-let district1 = document.querySelector("#district1");
-let district2 = document.querySelector("#district2");
-let neighbourhood1 = document.querySelector("#neighbourhood1");
-let neighbourhood2 = document.querySelector("#neighbourhood2");
+let districtYear1 = document.querySelector("#district1");
+let neighbourhoodYear1 = document.querySelector("#neighbourhood1");
 
-district1.addEventListener("change", () => {
+
+districtYear1.addEventListener("change", () => {
   
-  let neighbourhoodList1 = {};
+  let neighbourhoodYear1 = {};
   if(district1.value === "Empty" || district2.value === "Empty"  ){
-    document.querySelector("#neighbourhoodCompareButton").disabled = true;
-    document.querySelector("#neighbourhoodCompareButton").classList.add('disabled');
+    document.querySelector("#yearViewCompareButton").disabled = true;
+    document.querySelector("#yearViewCompareButton").classList.add('disabled');
   }else{
-    document.querySelector("#neighbourhoodCompareButton").disabled = false;
-    document.querySelector("#neighbourhoodCompareButton").classList.remove('disabled');
+    document.querySelector("#yearViewCompareButton").disabled = false;
+    document.querySelector("#yearViewCompareButton").classList.remove('disabled');
   }
 
 
@@ -38,42 +37,9 @@ district1.addEventListener("change", () => {
 })
 
 
-district2.addEventListener("change", () => {
-  
-  let neighbourhoodList2 = {};
-  if(district1.value === "Empty" || district2.value === "Empty"  ){
-    document.querySelector("#neighbourhoodCompareButton").disabled = true;
-    document.querySelector("#neighbourhoodCompareButton").classList.add('disabled');
-  }else{
-    document.querySelector("#neighbourhoodCompareButton").disabled = false;
-    document.querySelector("#neighbourhoodCompareButton").classList.remove('disabled');
-  }
-
-  if(district2.value === "Empty" ){
-    neighbourhood2.disabled = true;
-  }else{
-    neighbourhood2.disabled = false;
-    Array.from(apiData).forEach((item) =>{
-      if(item.attributes.Division === district2.value){
-        if (!neighbourhoodList2[`${item.attributes.Neighbourhood}`]){
-          neighbourhoodList2[`${item.attributes.Neighbourhood}`] = item.attributes.Neighbourhood
-        }
-      }
-    })
-    neighbourhood2.innerHTML = '';
-    let neighbourhoodList2Keys = Object.keys(neighbourhoodList2).sort();    
-    Array.from(neighbourhoodList2Keys).forEach((item) =>{
-      let option = document.createElement('option');
-      option.innerHTML = item;
-      option.setAttribute("value", item );
-      neighbourhood2.appendChild(option);
-    });
-    }
-})
-
 
 // Compares called data
-let neighbourHoodCompare = () =>{
+let yearViewCompareButton = () =>{
   
   //DATASET1
   let Neighbourhood1MCI = {};
@@ -196,7 +162,7 @@ var horizontalBarChartData = {
 //console.log(horizontalBarChartData);
 
 //Horizontal Bar Chart
-new Chart(document.getElementById("neighbourhoodChart"),{
+new Chart(document.getElementById("yearChart"),{
     type: 'horizontalBar',
     data: horizontalBarChartData,
     options: {
