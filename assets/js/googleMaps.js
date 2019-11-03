@@ -140,9 +140,7 @@ for(var i = 0; i < markers.length; i++){
 }
 
 
-
 //Add Marker Function
-
 function addMarker(props){
   var marker = new google.maps.Marker({
     position: props.coords,
@@ -164,7 +162,7 @@ function addMarker(props){
       //infoWindow.open(map,marker);
       //console.log(props.division);
       let division = String(props.division);
-      console.log(callMCI(division));
+      callMCI(division);
     })
     }
 }

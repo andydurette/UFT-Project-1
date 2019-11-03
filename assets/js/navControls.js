@@ -1,3 +1,5 @@
+(function(){
+
 //  Nav js
 document.getElementById('myMenuFunction').onclick = function(e){
   var x = document.getElementById("myTopnav");
@@ -37,8 +39,6 @@ activeItem.forEach((userItem) => {
 
 // On Scroll event
 
-
-
 var isInViewport = function (elem) {
   var bounding = elem.getBoundingClientRect();
   return (
@@ -49,6 +49,38 @@ var isInViewport = function (elem) {
   );
 };
 
+
+// Set initial active state
+
+let h = document.querySelector('#home h1');
+let d = document.querySelector('#districtView #map');
+let n = document.querySelector('#neighbourhoodView #neighbourhoodCompareBlock');
+let y = document.querySelector('#yearView h2');
+if (isInViewport(h)) {
+    activeItem.forEach((userItem) => {
+          userItem.classList.remove("active");
+    });
+    document.querySelectorAll('#myTopnav div a')[0].classList.add("active");
+} else if (isInViewport(d)) {
+    activeItem.forEach((userItem) => {
+    userItem.classList.remove("active");
+    });
+    document.querySelectorAll('#myTopnav div a')[1].classList.add("active");
+} else if (isInViewport(n)) {
+    activeItem.forEach((userItem) => {
+    userItem.classList.remove("active");
+    });
+    document.querySelectorAll('#myTopnav div a')[2].classList.add("active");
+} else if (isInViewport(y)) {
+    activeItem.forEach((userItem) => {
+    userItem.classList.remove("active");
+    });
+    document.querySelectorAll('#myTopnav div a')[3].classList.add("active");
+}
+
+
+
+// On scroll set Active State
 document.addEventListener('scroll', () =>{
 let h = document.querySelector('#home h1');
 let d = document.querySelector('#districtView #map');
@@ -78,3 +110,11 @@ if (isInViewport(h)) {
 
 
 });
+
+
+
+
+
+
+
+})();
