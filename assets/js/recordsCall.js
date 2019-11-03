@@ -4,6 +4,12 @@ let dataMax;
 let dataCalled = 0;
 let resultOffSet = 0;
 let loadHide = () => { document.getElementById('loadingScreen').classList.add("hide") };
+let scriptAdd = (src) => {
+  let srcAdd = document.createElement("script");                 
+  srcAdd.setAttribute("src", src);   
+  document.querySelector("body").appendChild(srcAdd);  
+}
+
 
 
 let dataFetch = () =>{
@@ -17,13 +23,19 @@ let dataFetch = () =>{
         dataFetch();
       }else{
         loadHide();
-        formset();
         apiData = apiData.flat();
-        console.log(apiData);
+        // Uncomment below to see all the API's data loaded into page
+        //console.log(apiData);
+
+        // Add Script tags containing IIFE's for each sections functions to avoid polluting the global scope
+        scriptAdd('assets/js/googleMaps.js');  // Not an IIFE yet need to check with instructors
+        scriptAdd('assets/js/districtCheck.js'); // Not an IIFE yet need to check with instructors
+        scriptAdd('assets/js/navControls.js');
+        scriptAdd('assets/js/neighbourHoodCompare.js');
+        scriptAdd('assets/js/neighbourHoodYearCompare.js'); 
      }
     })
 }
-
 
 
 fetch("https://services.arcgis.com/S9th0jAJ7bqgIRjw/arcgis/rest/services/MCI_2014_to_2018/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json")
@@ -33,79 +45,3 @@ fetch("https://services.arcgis.com/S9th0jAJ7bqgIRjw/arcgis/rest/services/MCI_201
 }).then( 
   dataFetch
 );
-
-
-
-// Neighbourhood form setting
-
-let formset = () =>{
-
-  let division = {};
-  Array.from(apiData[0]).forEach((item) =>{
-      if (division[`${item.attributes.Division}`]){
-  
-      }else{
-        division[`${item.attributes.Division}`] = item.attributes.Division
-       }
-  });
-
-  let districtYearCompare = document.querySelector("#districtYearCompare");
-  let district1 = document.querySelector("#district1");
-  let district2 = document.querySelector("#district2");
-  
-  let divisionKeys = Object.keys(division).sort();
-
-  Array.from(divisionKeys).forEach((item) =>{
-    let option = document.createElement('option');
-    option.innerHTML = item;
-    option.setAttribute("value", item );
-    districtYearCompare.appendChild(option);
-  });
-
-  Array.from(divisionKeys).forEach((item) =>{
-    let option = document.createElement('option');
-    option.innerHTML = item;
-    option.setAttribute("value", item );
-    district1.appendChild(option);
-  });
-
-  Array.from(divisionKeys).forEach((item) =>{
-    let option = document.createElement('option');
-    option.innerHTML = item;
-    option.setAttribute("value", item );
-    district2.appendChild(option);
-  });
-
-  let dataYears = {};
-  Array.from(apiData[0]).forEach((item) =>{
-      if (dataYears[`${item.attributes.reportedyear}`]){
-  
-      }else{
-        dataYears[`${item.attributes.reportedyear}`] = item.attributes.reportedyear
-       }
-  });
-
-  console.log(dataYears);
-
-  let year1 = document.querySelector("#year1");
-  let year2 = document.querySelector("#year2");
-
-  let dataYearsKeys = Object.keys(dataYears).sort();
-
-  Array.from(dataYearsKeys).forEach((item) =>{
-    let option = document.createElement('option');
-    option.innerHTML = item;
-    option.setAttribute("value", item );
-    year1.appendChild(option);
-  });
-
-  Array.from(dataYearsKeys).forEach((item) =>{
-    let option = document.createElement('option');
-    option.innerHTML = item;
-    option.setAttribute("value", item );
-    year2.appendChild(option);
-  });
-
-
-}
-
