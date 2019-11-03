@@ -1,5 +1,4 @@
 (function(){
-
 /* Start of data to pass to chart.js to create a chart for comparing NeighbourHoods Crime */
 var color = Chart.helpers.color; 
 var horizontalBarChartData = {
@@ -17,7 +16,6 @@ var horizontalBarChartData = {
       data: [ 0, 0, 0, 0, 0 ]
   }]
 };
-
 //Horizontal Bar Chart
 let ctx = document.getElementById("neighbourhoodChart").getContext('2d');
 let neighbourhoodChartDisplay = new Chart(ctx,{
@@ -49,10 +47,7 @@ let neighbourhoodChartDisplay = new Chart(ctx,{
     }
   });
 /* End of data to pass to chart.js to create a chart for comparing NeighbourHoods Crime */
-
-
 /* Start of Setting Neighbourhood initial form data */
-
 // Object to hold values for looping and creating dynamicly generated html
 let division = {};
 // Data generated to above object from Querying ApiData
@@ -61,12 +56,10 @@ Array.from(apiData).forEach((item) =>{
       division[`${item.attributes.Division}`] = item.attributes.Division
      }
 });
-
 // Variables for quick selection
 let district1Options = document.querySelector("#district1");
 let district2Options = document.querySelector("#district2");
 let divisionKeys = Object.keys(division).sort();
-
 // Gets the array from divisionKey to dynamicly create html options for a selection form element
 Array.from(divisionKeys).forEach((item) =>{
   let option = document.createElement('option');
@@ -74,7 +67,6 @@ Array.from(divisionKeys).forEach((item) =>{
   option.setAttribute("value", item );
   district1Options.appendChild(option);
 });
-
 // Gets the array from divisionKey to dynamicly create html options for a selection form element
 Array.from(divisionKeys).forEach((item) =>{
   let option = document.createElement('option');
@@ -82,16 +74,12 @@ Array.from(divisionKeys).forEach((item) =>{
   option.setAttribute("value", item );
   district2Options.appendChild(option);
 });
-
 /* End of Setting Neighbourhood initial form data */
-
-
 // Selectors made for quick refrence lower in the code
 let district1 = document.querySelector("#district1");
 let district2 = document.querySelector("#district2");
 let neighbourhood1 = document.querySelector("#neighbourhood1");
 let neighbourhood2 = document.querySelector("#neighbourhood2");
-
 // Runs events that are triggered by a form fields change of value
 district1.addEventListener("change", () => {
   
@@ -104,7 +92,6 @@ district1.addEventListener("change", () => {
     document.querySelector("#neighbourhoodCompareButton").disabled = false;
     document.querySelector("#neighbourhoodCompareButton").classList.remove('disabled');
   }
-
   // This checks if the district1 selection has been choose if it hasn't we disable the neighborhood1 selection as it we have not dynamicly generated the neighborhoods to it.
   if(district1.value === "Empty" ){
     neighbourhood1.disabled = true;
@@ -119,7 +106,6 @@ district1.addEventListener("change", () => {
         }
       }
     });
-
     // We generate dynamicly the html selections for the nighbourhoods belonging to the district by using the Array generated from the above API data
     neighbourhood1.innerHTML = '';
     let neighbourhoodList1Keys = Object.keys(neighbourhoodList1).sort();    
@@ -131,7 +117,6 @@ district1.addEventListener("change", () => {
     });
     }
 })
-
 // Runs events that are triggered by a form fields change of value
 district2.addEventListener("change", () => {
   
@@ -144,13 +129,11 @@ district2.addEventListener("change", () => {
     document.querySelector("#neighbourhoodCompareButton").disabled = false;
     document.querySelector("#neighbourhoodCompareButton").classList.remove('disabled');
   }
-
   // This checks if the district1 selection has been choose if it hasn't we disable the neighborhood1 selection as it we have not dynamicly generated the neighborhoods to it.
   if(district2.value === "Empty" ){
     neighbourhood2.disabled = true;
   }else{
     neighbourhood2.disabled = false;
-
     // We check the nighbourhoods belonging to the district by comparing it to the API data for that district
     Array.from(apiData).forEach((item) =>{
       if(item.attributes.Division === district2.value){
@@ -159,7 +142,6 @@ district2.addEventListener("change", () => {
         }
       }
     });
-
     // We generate dynamicly the html selections for the nighbourhoods belonging to the district by using the Array generated from the above API data
     neighbourhood2.innerHTML = '';
     let neighbourhoodList2Keys = Object.keys(neighbourhoodList2).sort();    
@@ -171,14 +153,11 @@ district2.addEventListener("change", () => {
     });
     }
 });
-
-
 // Compares called data
 let neighbourHoodCompare = () =>{
   
   // Set to Record all major crime indicators (MCI) from the APIDATA for one neighbourhood
   let Neighbourhood1MCI = {};
-
   // Loop through to provide all the data on MCI'S and how many
   Array.from(apiData).forEach((item) =>{
     if ( item.attributes.Neighbourhood === neighbourhood1.value ){
@@ -188,12 +167,9 @@ let neighbourHoodCompare = () =>{
         Neighbourhood1MCI[`${item.attributes.MCI}`] = 1
        }
     }});
-
     let crimeValues1 = Object.values(Neighbourhood1MCI);
-
   // Set to Record all major crime indicators from the APIDATA for a second neighbourhood
   let Neighbourhood2MCI = {};
-
   Array.from(apiData).forEach((item) =>{
     if ( item.attributes.Neighbourhood === neighbourhood2.value ){
       if (Neighbourhood2MCI[`${item.attributes.MCI}`]){
@@ -202,17 +178,12 @@ let neighbourHoodCompare = () =>{
         Neighbourhood2MCI[`${item.attributes.MCI}`] = 1
         }
     }});
-
     let crimeValues2 = Object.values(Neighbourhood2MCI);
-
 //Update chart data
 neighbourhoodChartDisplay.data.datasets[0].data = crimeValues1;
 neighbourhoodChartDisplay.data.datasets[1].data = crimeValues2;
 neighbourhoodChartDisplay.update();
-
 }
-
 // Upon the sections Button Click Run the above function
 document.querySelector("#neighbourhoodCompareButton").addEventListener("click", neighbourHoodCompare);
-
 })();
