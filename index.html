@@ -73,6 +73,7 @@
        
   <section id="districtView">
     <h2>Know your city and it's dangers</h2>
+    <button onclick="testCoord()">test Coord</button>
     <p>Each marker on the map below belongs to a police district, click one to see the crime from that district since 2014</p>
  
     <div id="map"></div>
@@ -172,7 +173,8 @@
    <script src="assets/js/districtCheck.js"></script> 
    <!-- Neighbourhood compare -->
    <script src="assets/js/neighbourHoodCompare.js"></script>
+   <!--<script src="assets/js/neighbourhoods_toronto.geojson"></script>-->
+   <script src="https://cors-anywhere.herokuapp.com/https://nad.carto.com:443/api/v2/sql?q=select * from public.neighbourhoods_toronto"></script>
    
-
    </body>
 </html>
