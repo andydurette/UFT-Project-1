@@ -82,7 +82,7 @@ p{
 	justify-content: center;
 }
 
-#districtView p {
+#districtView p, #neighbourhoodView p, #yearView p {
 	max-width: 75%;
 	text-align: center;
 	margin: 0 auto;
