@@ -267,7 +267,7 @@
         document.querySelector('#year2 [value="' + localStorage.getItem("Year2StoredValue") + '"]').selected = true;
     }
 
-    if (localStorage.getItem("districtYearCompareStoredValue")) {
+    if (localStorage.getItem("districtYearCompareStoredValue") && localStorage.getItem("districtYearCompareStoredValue") !== "Empty") {
         document.querySelector('#districtYearCompare [value="' + localStorage.getItem("districtYearCompareStoredValue") + '"]').selected = true;
         document.querySelector('#districtYearCompare').dispatchEvent(new Event('change'));
         if (localStorage.getItem("neighbourhoodYearCompareStoredValue")) {
