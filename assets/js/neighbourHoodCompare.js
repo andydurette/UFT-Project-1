@@ -229,7 +229,7 @@
         localStorage.setItem("neighbourhood2StoredValue", neighbourhood2.value);
     });
     /* Start of checking for local storage value now that the dynamic html values are loaded */
-    if (localStorage.getItem("district1StoredValue")) {
+    if (localStorage.getItem("district1StoredValue") && localStorage.getItem("district1StoredValue") !== "Empty") {
         document.querySelector('#district1 [value="' + localStorage.getItem("district1StoredValue") + '"]').selected = true;
         document.querySelector('#district1').dispatchEvent(new Event('change'));
         if (localStorage.getItem("neighbourhood1StoredValue")) {
@@ -238,7 +238,7 @@
         }
     }
     
-    if (localStorage.getItem("district2StoredValue")) {
+    if (localStorage.getItem("district2StoredValue") && localStorage.getItem("district2StoredValue") !== "Empty") {
         document.querySelector('#district2 [value="' + localStorage.getItem("district2StoredValue") + '"]').selected = true;
         document.querySelector('#district2').dispatchEvent(new Event('change'));
         if (localStorage.getItem("neighbourhood2StoredValue")) {
