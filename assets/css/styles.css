@@ -2,170 +2,270 @@
 
 
 /* Google maps */
-
 /* Always set the map height explicitly to define the size of the div * element that contains the map. */
-  #map {
-  height: 60%;
+
+#map {
+	height: 60%;
 }
+
 /* Optional: Makes the sample page fill the window. */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif;
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
 }
+
+p{
+	font-size: 1.1em;
+}
+
 
 /* Main pages general styles */
 
-
-#home, #districtView, #neighbourhoodView, #yearView{
-  padding-top: 83px;
-  box-sizing: border-box;
-}
-
-#districtView{
-  height:100vh;
-  min-height:768px;
-}
-
-#districtView h2, #neighbourhoodView h2, #yearView h2{
-  text-align:center;
-}
-
-/* Individual pages general styles */
-
-#home{
-  background-color:#1b2b58;
-  color:white;
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
-  align-items: center;
-  text-align:center;
-}
-
-#home h1{
-  font-size:3em;
-}
-
-#home p{
-  padding:10px;
-  max-width:75%;
-}
-
-#home img{
-  width:177px;
+#home,
+#districtView,
+#neighbourhoodView,
+#yearView {
+	padding-top: 83px;
+	padding-bottom: 30px;
+	box-sizing: border-box;
 }
 
 #districtView {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+	height: 100vh;
+	min-height: 768px;
 }
 
-#districtView p {
-  max-width:75%;
-  text-align:center;
-  margin:0 auto;
-  margin-bottom:25px;
+#districtView h2,
+#neighbourhoodView h2,
+#yearView h2 {
+	text-align: center;
+	padding: 0 15px;
 }
 
-#neighbourhoodView{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+
+/* Individual pages general styles */
+
+#home {
+	background-color: #1b2b58;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-image: url("../images/background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
-#neighbourhoodCompareBlock{
-  display:flex;
-  flex-direction: column;
-  justify-content:space-evenly;
-  border: 1px solid black;
-  padding: 10px;
-  padding-top:20px;
-  margin: 20px;
-  border-radius: 5px;
-  text-align:center;
+#home h1 {
+	font-size: 2.5em;
 }
 
-#neighbourhoodCompareBlock form span{
-    width: 125px;
-    margin-bottom: 20px;
-    display: inline-block;
-    text-align:left;
+#home p {
+	padding: 10px;
+	max-width: 75%;
 }
 
-#neighbourhoodCompareBlock div{
-display: flex;
-flex-direction: column;
-justify-content: space-between;
+#home img {
+	margin:20px 0;
+	width: 177px;
 }
 
-#neighbourhoodCompareButton{
-  border:0px solid transparent;
-  border-radius:5px;
-  background-color: #f1ba4a;
-  color: #000;
-  font-weight:bold;
-  margin-bottom: 20px;
-  margin-top: 20px;
+#districtView {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
-#neighbourhoodCompareButton:hover{
-  background-color: #d19e43;
-  cursor:pointer;
+#districtView p, #neighbourhoodView p, #yearView p {
+	max-width: 75%;
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 25px;
 }
 
-#neighbourhoodView .chart-container{
-  width:100%;
-  display: flex;
-  justify-content: center;
-  justify-items: center;
-  margin-left:0;
+#neighbourhoodView,
+#yearView {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
-#neighbourhoodView .chart-container .chart-container-container{
-  width:50%;
+#neighbourhoodCompareBlock,
+#yearViewCompareBlock {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	border: 1px solid black;
+	padding: 10px;
+	padding-top: 20px;
+	margin: 20px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+#neighbourhoodCompareBlock form span,
+#yearViewCompareBlock form span {
+	width: 125px;
+	margin-bottom: 20px;
+	margin-right: 25px;
+	display: inline-block;
+	text-align: left;
+}
+
+#neighbourhoodCompareBlock div,
+#yearViewCompareBlock div {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#neighbourhoodCompareButton,
+#yearViewCompareButton {
+	border: 0px solid transparent;
+	border-radius: 5px;
+	background-color: #f1ba4a;
+	color: #000;
+	font-weight: bold;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	margin: 0 auto;
+	height: 40px;
+	width: 100px;
+}
+
+#neighbourhoodCompareButton:hover,
+#yearViewCompareButton:hover {
+	background-color: #d19e43;
+	cursor: pointer;
+}
+
+#neighbourhoodView select,
+#yearView select {
+	min-width: 80px;
+	max-width: 80px;
+	text-align: center;
+}
+
+#neighbourhoodView select option,
+#yearView select option {
+	text-align: center;
+}
+
+
+/* Charts styles */
+
+#neighbourhoodView .chart-container,
+#yearView .chart-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	justify-items: center;
+	margin-left: 0;
+}
+
+#neighbourhoodView .chart-container .chart-container-container,
+#yearView .chart-container .chart-container-container {
+	min-width: 300px;
+	max-width: 375px;
 }
 
 
 /* Footer */
 
-footer{
-  text-align:center;
-  background-color:#262625;
-  color:white;
-  height:50px;
-  display: flex;
-  justify-content: center;
-  justify-items: center;
+footer {
+	text-align: center;
+	background-color: #262625;
+	color: white;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	justify-items: center;
+}
+
+#neighbourhoodCompareButton.disabled,
+#yearViewCompareButton.disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+	background-color: #f1ba4a;
+}
+
+@media only screen and (min-width: 768px) {
+	#home {
+		height: 100vh;
+		min-height: 700px;
+		padding: 30px 0;
+	}
+	#neighbourhoodView,
+	#yearView {
+		min-height: 100vh;
+		padding: 30px 0;
+	}
+	#home h1 {
+		font-size: 3em;
+	}
+	#home p {
+		padding: 0 10px;
+    max-width: 70%;
+	}
+	#neighbourhoodCompareBlock div form{
+		display:flex;
+		flex-direction:column;
+	}
+}
+
+@media only screen and (min-width: 650px) {
+	#neighbourhoodView .chart-container .chart-container-container,
+	#yearView .chart-container .chart-container-container {
+		width: 700px;
+		max-width: 700px;
+	}
+}
+
+@media only screen and (min-width: 1100px) {
+	#neighbourhoodView .chart-container .chart-container-container,
+	#yearView .chart-container .chart-container-container {
+		width: 900px;
+		max-width: 900px;
+	}
 }
 
 
 
+
 @media only screen and (min-width: 768px) {
-  #home, #districtView, #neighbourhoodView, #yearView{
-    height:100vh;
-  }
 
-  #home p{
-    padding: 0 10px;
-    max-width:50%;
-  }
+	#neighbourhoodCompareBlock div,
+	#yearViewCompareBlock div{
+		width:100%;
+	}
 
-  #neighbourhoodCompareBlock{
-    flex-direction: row;
-  }
+	#neighbourhoodCompareBlock div form,
+	#yearViewCompareBlock div form{
+		display:flex;
+		flex-direction:row;
+		justify-content: space-around;
+	
+	}
 
-  #neighbourhoodCompareBlock div:nth-of-type(1) {
-    order:1;
-  }
+	#neighbourhoodCompareBlock div:nth-of-type(1),
+	#yearViewCompareBlock div:nth-of-type(1) {
+		order: 1;
+	}
 
-  #neighbourhoodCompareBlock button {
-    order: 2; 
-  }
+	#neighbourhoodCompareBlock button, 
+	#yearViewCompareBlock button{
+		order: 2;
+		margin: 20px 0;
+	}
+	#neighbourhoodCompareBlock div:nth-of-type(2),
+	#yearViewCompareBlock div:nth-of-type(2){
+		order: 3;
+	}
 
-  #neighbourhoodCompareBlock div:nth-of-type(2) {
-    order:3;
-  }
 }

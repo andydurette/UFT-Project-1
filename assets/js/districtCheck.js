@@ -1,57 +1,76 @@
+//Horizontal Bar Chart Data
+var color = Chart.helpers.color; 
+var horizontalBarChartData = {
+    labels: ['Assault', 'Theft Over', 'Break and Enter', 'Robbery', 'Auto Theft'],
+    datasets: [{
+      label: 'District ID: ',
+      backgroundColor: color("#3e41cd").alpha(0.5).rgbString(),
+      borderColor: "#3e41cd",
+      borderWidth: 1,
+      data: [0, 0, 0, 0, 0]
+  }]
+};
 
- let callMCI = (district) => {  
-  console.log(district);
+/* Horizontal Bar Build Chart Start */
+let ctx = document.getElementById("modalChart").getContext('2d');
+let districtChartDisplay = new Chart(ctx,{
+    type: 'horizontalBar',
+    data: horizontalBarChartData,
+    options: {
+      elements: {
+        rectangle: {
+          borderWidth: 2,
+        }
+      },
+      responsive: true,
+      aspectRatio: 1,
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+     },
+      title: {
+        display: true,
+        text: '# of crime occurance'
+      }
+    }
+  });
 
-  let MCI = {
-    
-  }
 
-  Array.from(apiData).forEach((item) =>{
-    if ( item.properties.Division === district ){
-      if (MCI[`${item.properties.MCI}`]){
-        MCI[`${item.properties.MCI}`] = MCI[`${item.properties.MCI}`] + 1
+let callMCI = (district) => {  
+
+  // Set to Record all major crime indicators (MCI) from the APIDATA
+  let MCI = {}
+
+  // Loop through to provide all the data on MCI'S and how many
+  apiData.forEach((item) =>{
+    if ( item.attributes.Division === district ){
+      if (MCI[`${item.attributes.MCI}`]){
+        MCI[`${item.attributes.MCI}`] = MCI[`${item.attributes.MCI}`] + 1
       }else{
-        MCI[`${item.properties.MCI}`] = 1
+        MCI[`${item.attributes.MCI}`] = 1
        }
     }});
 
-    let crimeKeys = Object.keys(MCI);
+    // Provides data from loop for updading chart data
     let crimeValues = Object.values(MCI);
+    let crimeTotal = Object.values(MCI).reduce((a, b) => a + b, 0)
      
-// Bar chart
-new Chart(document.getElementById("myChart"), {
-type: 'bar',
-data: {
-  labels: crimeKeys,
-  datasets: [
-    {
-      backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-      data: crimeValues
-    }
-  ]
-},
-options: {
-  legend: { display: false },
-  title: {
-    display: true,
-    hover: {mode: null},
-    events: []
-  }
-}
+    //Update chart data
+    districtChartDisplay.data.datasets[0].data = crimeValues;
+    districtChartDisplay.options.title.text = `District ${district.substring(1, 3)} has had a total of ${crimeTotal} criminal events.`;
+    districtChartDisplay.update();
+
+
+/* Horizontal Bar Build Chart Start */
+
+document.querySelector('.modal-guts h2').innerHTML = `Crime Since 2014`;    
+document.getElementById("modal").classList.remove("hide");
+document.getElementById("modalOverlay").classList.remove("hide"); 
+
+// Hide Modal
+document.getElementById('close-button').addEventListener("click", () => {
+  document.getElementById("modal").classList.add("hide");
+  document.getElementById("modalOverlay").classList.add("hide");
 });
 
-
-
-// Pie chart build End
-
-document.querySelector('.modal-guts h2').innerHTML = `Crime for district ${district.substring(1, 4)} since 2014`;
-    
-  document.getElementById("modal").classList.remove("hide");
-  document.getElementById("modalOverlay").classList.remove("hide"); 
- // Hide Modal
-  document.getElementById('close-button').addEventListener("click", () => {
-    document.getElementById("modal").classList.add("hide");
-    document.getElementById("modalOverlay").classList.add("hide");
-  });
- 
 }
