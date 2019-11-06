@@ -23,10 +23,11 @@ let districtChartDisplay = new Chart(ctx,{
         }
       },
       responsive: true,
-      maintainAspectRatio: true,
+      aspectRatio: 1,
+      maintainAspectRatio: false,
       legend: {
-        position: 'right',
-      },
+        display: false
+     },
       title: {
         display: true,
         text: '# of crime occurance'
@@ -41,7 +42,7 @@ let callMCI = (district) => {
   let MCI = {}
 
   // Loop through to provide all the data on MCI'S and how many
-  Array.from(apiData).forEach((item) =>{
+  apiData.forEach((item) =>{
     if ( item.attributes.Division === district ){
       if (MCI[`${item.attributes.MCI}`]){
         MCI[`${item.attributes.MCI}`] = MCI[`${item.attributes.MCI}`] + 1
@@ -56,8 +57,7 @@ let callMCI = (district) => {
      
     //Update chart data
     districtChartDisplay.data.datasets[0].data = crimeValues;
-    districtChartDisplay.data.datasets[0].label = 'District ID: ' + district.substring(1, 3);
-    districtChartDisplay.options.title.text = crimeTotal + " number of crime occurance";
+    districtChartDisplay.options.title.text = `District ${district.substring(1, 3)} has had a total of ${crimeTotal} criminal events.`;
     districtChartDisplay.update();
 
 

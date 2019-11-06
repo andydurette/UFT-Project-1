@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Police Google Map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
@@ -9,189 +10,171 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/nav.css">
     <link rel="stylesheet" href="assets/css/modal.css">
-  </head>
-  <body>
+</head>
 
+<body>
 
-  <!-- Loading Screen -->
-  <section id="loadingScreen">
-      <h2>Loading Application data</h2>
-      <img src="assets/images/loading.svg" alt="Loading gif">
-  </section>
-
-  <!-- MODAL CONTENT -->
-  <div class="modalOverlay hide" id="modalOverlay"></div>
-  <div class="modal hide" id="modal">
-    <button class="close-button" id="close-button">X</button>
-    <div class="modal-guts">
-        <section id="options">
-            <h2>Assault for this region since 2014</h2>
-              <div class="chart-container">
-                  <div class="chart-container-container">
-                  <canvas id="modalChart"></canvas>
-                </div>
-              </div>
-            </section>
-    </div>
-  </div>
-
-  <!-- Navigation -->
-  <nav class="topnav" id="myTopnav">
-      <div>
-        <a href="#home">HOME</a>
-        <a href="#districtView">DISTRICTS</a>
-        <a href="#neighbourhoodView">NEIGHBOURHOODS</a>
-        <a href="#yearView">YEAR</a>
-        <a href="javascript:void(0);" style="font-size:15px;" class="icon" id="myMenuFunction">&#9776;</a>
-      </div>
-  </nav>
-
-  <section id="home">
-      <img src="assets/images/logo-crest.png" alt="Toronto police crest">
-      <h1>Is My Neighbourhood Safe?</h1>
-      <p>
-        We all wonder this, for the safety for ourselves and our loved ones. To 
-        help you to be aware and best consider where you want to live and work, we have built a tool
-        to help know the answer to just that question.
-      </p>
-      <p>
-        Below you can use the provided to compare Toronto's crime stastics by district, compare crime 
-        neighbourhood to neighbourhood and even see crime by neighbourhood year to year to year to see if it's
-        increasing or decreasing. 
-      </p>
-      <p>
-        A special thanks to the Toronto police who's open data has made this possible.
-      </p>
-
-      
+    <!-- Loading Screen -->
+    <section id="loadingScreen">
+        <h2>Loading Application data</h2>
+        <img src="assets/images/loading.svg" alt="Loading gif">
     </section>
 
-       
-  <section id="districtView">
-    <h2>Know your city and it's dangers</h2>
-    <p>Each marker on the map below belongs to a police district, click one to see the crime from that district since 2014</p>
- 
-    <div id="map"></div>
-  </section>
-
-  
-  <section id="neighbourhoodView">
-      <h2>Compare crime rates between different neighbourhoods since 2014</h2>
-
-<div id="neighbourhoodCompareBlock">
-
-    <div>
-
-        <form>
-            <label for="district1"><span>District 1</span>
-                <select id="district1" name="field4" class="select-field">
-                    <option value="Empty">--</option>
-
-                </select>
-            </label>
-        </form>
-
-        <form>
-            <label for="neighbourhood1"><span>Neighbourhood 1</span>
-                <select id="neighbourhood1" name="neighbourhood1" class="select-field" disabled>
-                  <option value="Empty">--</option>
-                </select>
-            </label>
-        </form>
-
+    <!-- MODAL CONTENT -->
+    <div class="modalOverlay hide" id="modalOverlay"></div>
+    <div class="modal hide" id="modal">
+        <button class="close-button" id="close-button">X</button>
+        <div class="modal-guts">
+            <section id="options">
+                <h2>Assault for this region since 2014</h2>
+                <div class="chart-container">
+                    <div class="chart-container-container">
+                        <canvas id="modalChart"></canvas>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
+
+    <!-- Navigation -->
+    <nav class="topnav" id="myTopnav">
+        <div>
+            <a href="#home">HOME</a>
+            <a href="#districtView">DISTRICTS</a>
+            <a href="#neighbourhoodView">NEIGHBOURHOODS</a>
+            <a href="#yearView">YEAR</a>
+            <a href="javascript:void(0);" style="font-size:15px;" class="icon" id="myMenuFunction">&#9776;</a>
+        </div>
+    </nav>
+
+    <section id="home">
+        
+        <h1>Is My Neighbourhood Safe?</h1>
+        <p>
+            We all consider the safety of ourselves and our loved ones, wheather just to be aware of potential dangers or for consider where you want to live and work. 
+            To put minds at ease we have built a tool to answer these questions, below you can use the provided tools to compare Toronto's crime stastics by district,
+            neighbourhood and even see crime by neighbourhood year to year to see if it's increasing or decreasing.
+        </p>
+        <p>
+            A special thanks to the Toronto police who's open data has made this possible.
+        </p>
+        <img src="assets/images/logo-crest.png" alt="Toronto police crest">
+
+    </section>
+
+    <section id="districtView">
+        <h2>Know your city and it's dangers</h2>
+        <p>Each marker on the map below belongs to a police district, click one to see the crime from that district since 2014</p>
+
+        <div id="map"></div>
+    </section>
+
+    <section id="neighbourhoodView">
+        <h2>Compare crime rates between different neighbourhoods since 2014</h2>
+
+        <div id="neighbourhoodCompareBlock">
+
+            <div>
+                <form>
+                    <div>
+                        <label for="district1"><span>District 1</span>
+                            <select id="district1" name="district1" class="select-field">
+                                <option value="Empty">--</option>
     
-    <div>
-        <form>
-            <label for="district2"><span>District 2</span>
-                <select id="district2" name="district2" class="select-field">
-                  <option value="Empty">--</option>
-                </select>
-            </label>
-        </form>
+                            </select>
+                        </label>
+                        <label for="neighbourhood1"><span>Neighbourhood 1</span>
+                            <select id="neighbourhood1" name="neighbourhood1" class="select-field" disabled>
+                                <option value="Empty">--</option>
+                            </select>
+                        </label>
+                    </div>
+                    
+                    <div>
+                    <label for="district2"><span>District 2</span>
+                        <select id="district2" name="district2" class="select-field">
+                            <option value="Empty">--</option>
+                        </select>
+                    </label>
+      
+                    <label for="neighbourhood2"><span>Neighbourhood 2</span>
+                        <select id="neighbourhood2" name="neighbourhood2" class="select-field" disabled>
+                            <option value="Empty">--</option>
+                        </select>
+                    </label>
+                    </div>
 
-        <form>
-            <label for="neighbourhood2"><span>Neighbourhood 2</span>
-                <select id="neighbourhood2" name="neighbourhood2" class="select-field" disabled>
-                  <option value="Empty">--</option>
-                </select>
-            </label>
-        </form>
-    </div>
+                    <button id="neighbourhoodCompareButton" class="disabled" disabled>Compare</button>
+                </form>
 
-    <button id="neighbourhoodCompareButton" class="disabled" disabled>Compare</button>
+                
+            </div>
 
-</div>
-<div class="chart-container">
-    <div class="chart-container-container">
-      <canvas id="neighbourhoodChart"></canvas>
-    </div>
-</div>
-     
+          
+
+        </div>
+        <div class="chart-container">
+            <div class="chart-container-container">
+                <canvas id="neighbourhoodChart"></canvas>
+            </div>
+        </div>
+
     </section>
 
     <section id="yearView">
         <h2>Is your neighbourhood getting better or worse?</h2>
 
         <div id="yearViewCompareBlock">
-        <div>
+            <div>
 
-          <form>
-              <label for="district"><span>District</span>
-                  <select id="districtYearCompare" name="field4" class="select-field">
-                      <option value="Empty">--</option>
-  
-                  </select>
-              </label>
-          </form>
-  
-          <form>
-              <label for="neighbourhoodYearCompare"><span>Neighbourhood</span>
-                  <select id="neighbourhoodYearCompare" name="neighbourhood" class="select-field" disabled>
-                    <option value="Empty">--</option>
-                  </select>
-              </label>
-          </form>
-  
-      </div>
-      
-      <div>
-          <form>
-              <label for="year1"><span>Year 1</span>
-                  <select id="year1" name="year1" class="select-field">
-                  
-                  </select>
-              </label>
-          </form>
-  
-          <form>
-              <label for="year2"><span>Year 2</span>
-                  <select id="year2" name="year2" class="select-field">
+                <form>
+                    <div>
+                        <label for="district"><span>District</span>
+                            <select id="districtYearCompare" name="districtYearCompare" class="select-field">
+                                <option value="Empty">--</option>
+                            </select>
+                        </label>
                 
-                  </select>
-              </label>
-          </form>
-      </div>
-  
-      <button id="yearViewCompareButton" class="disabled" disabled>Compare</button>
-  
-  </div>
-  <div class="chart-container">
-      <div class="chart-container-container">
-        <canvas id="yearChart"></canvas>
-      </div>
-  </div>
-    
-      </section>
+                        <label for="neighbourhoodYearCompare"><span>Neighbourhood</span>
+                            <select id="neighbourhoodYearCompare" name="neighbourhoodYearCompare" class="select-field" disabled>
+                                <option value="Empty">--</option>
+                            </select>
+                        </label>
+                    </div>
 
-      <footer>
-          <p>©Team1 UFT</p>
-      </footer>
+                    <div>
+                        <label for="year1"><span>Year 1</span>
+                            <select id="year1" name="year1" class="select-field"></select>
+                        </label>
 
-   <!-- Initial src libraries -->
-   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_D7Z3NIZb0BrY1SVPdqYyEg5sQktNqJ4"></script> 
-   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-   <!-- Calls initial data -->
-   <script src="assets/js/recordsCall.js"></script> 
-   </body>
+                        <label for="year2"><span>Year 2</span>
+                            <select id="year2" name="year2" class="select-field"></select>
+                        </label>
+                    </div>
+                    <button id="yearViewCompareButton" class="disabled" disabled>Compare</button>
+                </form>
+                
+            </div>
+        </div>
+        <div class="chart-container">
+            <div class="chart-container-container">
+                <canvas id="yearChart"></canvas>
+            </div>
+            <!-- <div id="graphic"></div> -->
+
+        </div>
+
+    </section>
+
+    <footer>
+        <p>©Team1 UFT</p>
+    </footer>
+
+    <!-- Initial src libraries -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_D7Z3NIZb0BrY1SVPdqYyEg5sQktNqJ4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <!-- Calls initial data -->
+    <script src="assets/js/recordsCall.js"></script>
+</body>
+
 </html>
