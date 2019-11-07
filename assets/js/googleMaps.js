@@ -193,7 +193,6 @@ var div32Coord = [
     { lat: 43.7904, lng: -79.3950 },
 ];
 
-
 var div31Coord = [
     //top left 
     { lat: 43.7680, lng: -79.5800 },
@@ -457,6 +456,7 @@ var markers = [{
             lng: -79.460830
         },
         iconImage: '././assets/images/division_11.png',
+        content: "<h3>District 11</h3>",
         title: "District 11",
         division: "D11"
     },
@@ -466,6 +466,7 @@ var markers = [{
             lng: -79.489880
         },
         iconImage: '././assets/images/division_12.png',
+        content: "<h3>District 12</h3>",
         title: "District 12",
         division: "D12"
     },
@@ -475,6 +476,7 @@ var markers = [{
             lng: -79.436680
         },
         iconImage: '././assets/images/division_13.png',
+        content: "<h3>District 13</h3>",
         title: "District 13",
         division: "D13"
     },
@@ -484,6 +486,7 @@ var markers = [{
             lng: -79.425980
         },
         iconImage: '././assets/images/division_14.png',
+        content: "<h3>District 14</h3>",
         title: "District 14",
         division: "D14"
     },
@@ -493,6 +496,7 @@ var markers = [{
             lng: -79.557473
         },
         iconImage: '././assets/images/division_22.png',
+        content: "<h3>District 22</h3>",
         title: "District 22",
         division: "D22"
     },
@@ -502,6 +506,7 @@ var markers = [{
             lng: -79.589010
         },
         iconImage: '././assets/images/division_23.png',
+        content: "<h3>District 23</h3>",
         title: "District 23",
         division: "D23"
     },
@@ -511,6 +516,7 @@ var markers = [{
             lng: -79.517473
         },
         iconImage: '././assets/images/division_31.png',
+        content: "<h3>District 31</h3>",
         title: "District 31",
         division: "D31"
     },
@@ -520,6 +526,7 @@ var markers = [{
             lng: -79.435090
         },
         iconImage: '././assets/images/division_32.png',
+        content: "<h3>District 32</h3>",
         title: "District 32",
         division: "D32"
     },
@@ -529,6 +536,7 @@ var markers = [{
             lng: -79.367070
         },
         iconImage: '././assets/images/division_33.png',
+        content: "<h3>District 33</h3>",
         title: "District 33",
         division: "D33"
     },
@@ -538,6 +546,7 @@ var markers = [{
             lng: -79.287110
         },
         iconImage: '././assets/images/division_41.png',
+        content: "<h3>District 41</h3>",
         title: "District 41",
         division: "D41"
     },
@@ -547,6 +556,7 @@ var markers = [{
             lng: -79.277010
         },
         iconImage: '././assets/images/division_42.png',
+        content: "<h3>District 42</h3>",
         title: "District 42",
         division: "D42"
     },
@@ -556,6 +566,7 @@ var markers = [{
             lng: -79.206060
         },
         iconImage: '././assets/images/division_43.png',
+        content: "<h3>District 43</h3>",
         title: "District 43",
         division: "D43"
     },
@@ -565,6 +576,7 @@ var markers = [{
             lng: -79.362140
         },
         iconImage: '././assets/images/division_51.png',
+        content: "<h3>District 51</h3>",
         title: "District 51",
         division: "D51"
     },
@@ -574,6 +586,7 @@ var markers = [{
             lng: -79.389720
         },
         iconImage: '././assets/images/division_52.png',
+        content: "<h3>District 52</h3>",
         title: "District 52",
         division: "D52"
     },
@@ -583,6 +596,7 @@ var markers = [{
             lng: -79.380660
         },
         iconImage: '././assets/images/division_53.png',
+        content: "<h3>District 53</h3>",
         title: "District 53",
         division: "D53"
     },
@@ -592,6 +606,7 @@ var markers = [{
             lng: -79.329300
         },
         iconImage: '././assets/images/division_55.png',
+        content: "<h3>District 55</h3>",
         title: "District 55",
         division: "D55"
     }
@@ -626,7 +641,7 @@ function addMarker(props) {
 
         marker.addListener('click', function() {
             //infoWindow.open(map,marker);
-            //console.log(props.division);
+            console.log(props.division);
             let division = String(props.division);
             callMCI(division);
         })
