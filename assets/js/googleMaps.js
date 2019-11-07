@@ -457,8 +457,7 @@ var markers = [{
             lng: -79.460830
         },
         iconImage: '././assets/images/division_11.png',
-        content: "<h3>2054 Davenport Road, Toronto, ON</h3>",
-        title: "2054 Davenport Road, Toronto, ON",
+        title: "District 11",
         division: "D11"
     },
     {
@@ -467,8 +466,7 @@ var markers = [{
             lng: -79.489880
         },
         iconImage: '././assets/images/division_12.png',
-        content: "<h3>200 Trethewey Dr, North York, ON</h3>",
-        title: "200 Trethewey Dr, North York, ON",
+        title: "District 12",
         division: "D12"
     },
     {
@@ -477,8 +475,7 @@ var markers = [{
             lng: -79.436680
         },
         iconImage: '././assets/images/division_13.png',
-        content: "<h3>1435 Eglinton Ave West, Toronto, ON</h3>",
-        title: "1435 Eglinton Ave West, Toronto, ON",
+        title: "District 13",
         division: "D13"
     },
     {
@@ -487,8 +484,7 @@ var markers = [{
             lng: -79.425980
         },
         iconImage: '././assets/images/division_14.png',
-        content: "<h3>350 Dovercourt Road, Toronto, ON</h3>",
-        title: "350 Dovercourt Road, Toronto, ON",
+        title: "District 14",
         division: "D14"
     },
     {
@@ -497,8 +493,7 @@ var markers = [{
             lng: -79.557473
         },
         iconImage: '././assets/images/division_22.png',
-        content: "<h3>5230 Finch Ave W, Toronto, ON</h3>",
-        title: "5230 Finch Ave W, Toronto, ON",
+        title: "District 22",
         division: "D22"
     },
     {
@@ -507,8 +502,7 @@ var markers = [{
             lng: -79.589010
         },
         iconImage: '././assets/images/division_23.png',
-        content: "<h3>3699 Bloor St W, Etobicoke, ON</h3>",
-        title: "3699 Bloor St W, Etobicoke, ON",
+        title: "District 23",
         division: "D23"
     },
     {
@@ -517,8 +511,7 @@ var markers = [{
             lng: -79.517473
         },
         iconImage: '././assets/images/division_31.png',
-        content: "<h3>40 Norfinch Dr, North York, ON</h3>",
-        title: "40 Norfinch Dr, North York, ON",
+        title: "District 31",
         division: "D31"
     },
     {
@@ -527,8 +520,7 @@ var markers = [{
             lng: -79.435090
         },
         iconImage: '././assets/images/division_32.png',
-        content: "<h3>30 Ellerslie Av, Toronto, ON</h3>",
-        title: "30 Ellerslie Av, Toronto, ON",
+        title: "District 32",
         division: "D32"
     },
     {
@@ -537,8 +529,7 @@ var markers = [{
             lng: -79.367070
         },
         iconImage: '././assets/images/division_33.png',
-        content: "<h3>50 Upjohn Rd, North York, ON</h3>",
-        title: "50 Upjohn Rd, North York, ON",
+        title: "District 33",
         division: "D33"
     },
     {
@@ -547,8 +538,7 @@ var markers = [{
             lng: -79.287110
         },
         iconImage: '././assets/images/division_41.png',
-        content: "<h3>2222 Eglinton Ave East, Scarborough, ON</h3>",
-        title: "2222 Eglinton Ave East, Scarborough, ON",
+        title: "District 41",
         division: "D41"
     },
     {
@@ -557,8 +547,7 @@ var markers = [{
             lng: -79.277010
         },
         iconImage: '././assets/images/division_42.png',
-        content: "<h3>242 Milner Ave, Scarborough, ON</h3>",
-        title: "242 Milner Ave, Scarborough, ON",
+        title: "District 42",
         division: "D42"
     },
     {
@@ -567,8 +556,7 @@ var markers = [{
             lng: -79.206060
         },
         iconImage: '././assets/images/division_43.png',
-        content: "<h3>4331 Lawrence Ave E, Scarborough, ON</h3>",
-        title: "4331 Lawrence Ave E, Scarborough, ON",
+        title: "District 43",
         division: "D43"
     },
     {
@@ -577,8 +565,7 @@ var markers = [{
             lng: -79.362140
         },
         iconImage: '././assets/images/division_51.png',
-        content: "<h3>51 Parliament Street, Toronto, ON</h3>",
-        title: "51 Parliament Street, Toronto, ON",
+        title: "District 51",
         division: "D51"
     },
     {
@@ -587,8 +574,7 @@ var markers = [{
             lng: -79.389720
         },
         iconImage: '././assets/images/division_52.png',
-        content: "<h3>255 Dundas St West, Toronto, ON</h3>",
-        title: "255 Dundas St West, Toronto, ON",
+        title: "District 52",
         division: "D52"
     },
     {
@@ -597,8 +583,7 @@ var markers = [{
             lng: -79.380660
         },
         iconImage: '././assets/images/division_53.png',
-        content: "<h3>75 Eglinton Ave West, Toronto, ON</h3>",
-        title: "75 Eglinton Ave West, Toronto, ON",
+        title: "District 53",
         division: "D53"
     },
     {
@@ -607,8 +592,7 @@ var markers = [{
             lng: -79.329300
         },
         iconImage: '././assets/images/division_55.png',
-        content: "<h3>101 Coxwell Ave, Toronto, ON</h3>",
-        title: "101 Coxwell Ave, Toronto, ON",
+        title: "District 55",
         division: "D55"
     }
 
