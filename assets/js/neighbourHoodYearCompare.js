@@ -271,9 +271,12 @@
         document.querySelector('#districtYearCompare [value="' + localStorage.getItem("districtYearCompareStoredValue") + '"]').selected = true;
         document.querySelector('#districtYearCompare').dispatchEvent(new Event('change'));
         if (localStorage.getItem("neighbourhoodYearCompareStoredValue")) {
-            document.querySelector('#neighbourhoodYearCompare [value="' + localStorage.getItem("neighbourhoodYearCompareStoredValue") + '"]').selected = true;
-            document.querySelector('#neighbourhoodYearCompare').dispatchEvent(new Event('change'));
+            if(document.querySelector('#neighbourhoodYearCompare [value="' + localStorage.getItem("neighbourhoodYearCompareStoredValue") + '"]')){
+                document.querySelector('#neighbourhoodYearCompare [value="' + localStorage.getItem("neighbourhoodYearCompareStoredValue") + '"]').selected = true;
+                document.querySelector('#neighbourhoodYearCompare').dispatchEvent(new Event('change'));
+            }
         }
+        
     }
 
     
