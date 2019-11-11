@@ -233,8 +233,10 @@
         document.querySelector('#district1 [value="' + localStorage.getItem("district1StoredValue") + '"]').selected = true;
         document.querySelector('#district1').dispatchEvent(new Event('change'));
         if (localStorage.getItem("neighbourhood1StoredValue")) {
-            document.querySelector('#neighbourhood1 [value="' + localStorage.getItem("neighbourhood1StoredValue") + '"]').selected = true;
-            document.querySelector('#neighbourhood1').dispatchEvent(new Event('change'));
+            if(document.querySelector('#neighbourhood1StoredValue [value="' + localStorage.getItem("neighbourhood1StoredValue") + '"]')){
+                document.querySelector('#neighbourhood1 [value="' + localStorage.getItem("neighbourhood1StoredValue") + '"]').selected = true;
+                document.querySelector('#neighbourhood1').dispatchEvent(new Event('change'));
+            }
         }
     }
     
@@ -242,8 +244,10 @@
         document.querySelector('#district2 [value="' + localStorage.getItem("district2StoredValue") + '"]').selected = true;
         document.querySelector('#district2').dispatchEvent(new Event('change'));
         if (localStorage.getItem("neighbourhood2StoredValue")) {
-            document.querySelector('#neighbourhood2 [value="' + localStorage.getItem("neighbourhood2StoredValue") + '"]').selected = true;
-            document.querySelector('#neighbourhood2').dispatchEvent(new Event('change'));
+            if(document.querySelector('#neighbourhood2StoredValue [value="' + localStorage.getItem("neighbourhood2StoredValue") + '"]')){
+                document.querySelector('#neighbourhood2 [value="' + localStorage.getItem("neighbourhood2StoredValue") + '"]').selected = true;
+                document.querySelector('#neighbourhood2').dispatchEvent(new Event('change'));
+            }
         }
     }
     
