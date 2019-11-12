@@ -15,7 +15,7 @@ This project focused on using everything we have learnt in the course thus far a
 **Challenges and technologies used in no particular order.**
 
 **Toronto police open data portal:** Taking and parsing the data.  
-**Google Maps API:** Mapping police portal data by police districts.
+**Google Maps API:** Mapping police portal data by police districts.</br>
 **Using Chart.js:** Learning to create and update charts.
 
 ![markdown-preview-image](assets/images/markdown-preview-image.png)
