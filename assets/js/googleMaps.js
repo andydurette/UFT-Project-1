@@ -1,5 +1,5 @@
-let lat = 43.6710;
-let long = -79.4605;
+var lat = 43.6710;
+var long = -79.4605;
 
 
 // New Map
@@ -642,7 +642,7 @@ function addMarker(props) {
         marker.addListener('click', function() {
             //infoWindow.open(map,marker);
             console.log(props.division);
-            let division = String(props.division);
+            var division = String(props.division);
             callMCI(division);
         })
     }

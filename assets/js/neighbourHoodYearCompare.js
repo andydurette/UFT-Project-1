@@ -1,15 +1,15 @@
 (function() {
 
     // Variables for quick selection
-    let year1 = document.querySelector("#year1");
-    let year2 = document.querySelector("#year2");
-    let districtYearCompare = document.querySelector("#districtYearCompare");
-    let neigbourhoodYearCompare = document.querySelector("#neighbourhoodYearCompare");
+    var year1 = document.querySelector("#year1");
+    var year2 = document.querySelector("#year2");
+    var districtYearCompare = document.querySelector("#districtYearCompare");
+    var neigbourhoodYearCompare = document.querySelector("#neighbourhoodYearCompare");
 
 
     /***********************     CHART CREATION START    ****************************/
 
-    let legendDirection = () => {
+    var legendDirection = function() {
         if (window.innerWidth < 650) {
             return 'top'
         } else {
@@ -36,8 +36,8 @@
     };
 
     //Horizontal Bar Chart
-    let ctx = document.getElementById("yearChart").getContext('2d');
-    let yearChartDisplay = new Chart(ctx, {
+    var ctx = document.getElementById("yearChart").getContext('2d');
+    var yearChartDisplay = new Chart(ctx, {
         type: 'horizontalBar',
         data: horizontalBarChartData,
         options: {
@@ -68,7 +68,7 @@
     });
 
     //Update chart legend to better display on mobile or desktop
-    let chartLegendUpdate = () => {
+    var chartLegendUpdate = function() {
         if (window.innerWidth < 650) {
             yearChartDisplay.options.legend.position = "top";
             yearChartDisplay.update();
@@ -87,47 +87,47 @@
 
     /***********************     INITIAL NEIGHBOURHOODYEARCOMPARE FORM DATA START    ****************************/
 
-    let division = {};
-    apiData.forEach((item) => {
-        if (!division[`${item.attributes.Division}`]) {
-            division[`${item.attributes.Division}`] = item.attributes.Division
+    var division = {};
+    apiData.forEach(function(item) {
+        if (!division[item.attributes.Division]) {
+            division[item.attributes.Division] = item.attributes.Division
         }
     });
 
     // Variables for quick selection
-    let districtYearCompareOptions = document.querySelector("#districtYearCompare");
-    let divisionKeys = Object.keys(division).sort();
+    var districtYearCompareOptions = document.querySelector("#districtYearCompare");
+    var divisionKeys = Object.keys(division).sort();
 
     // Gets the array from divisionKey to dynamicly create html options for a selection form element
-    divisionKeys.forEach((item) => {
-        let option = document.createElement('option');
+    divisionKeys.forEach(function(item) {
+        var option = document.createElement('option');
         option.innerHTML = item;
         option.setAttribute("value", item);
         districtYearCompareOptions.appendChild(option);
     });
 
     // Object to hold values for looping and creating dynamicly generated html
-    let dataYears = {};
+    var dataYears = {};
     // Data generated to above object from Querying ApiData
-    apiData.forEach((item) => {
-        if (!dataYears[`${item.attributes.reportedyear}`]) {
-            dataYears[`${item.attributes.reportedyear}`] = item.attributes.reportedyear
+    apiData.forEach(function(item) {
+        if (!dataYears[item.attributes.reportedyear]) {
+            dataYears[item.attributes.reportedyear] = item.attributes.reportedyear
         }
     });
 
-    let dataYearsKeys = Object.keys(dataYears).sort();
+    var dataYearsKeys = Object.keys(dataYears).sort();
 
     // Gets the array from divisionKey to dynamicly create html options for a selection form element
-    dataYearsKeys.forEach((item) => {
-        let option = document.createElement('option');
+    dataYearsKeys.forEach(function(item) {
+        var option = document.createElement('option');
         option.innerHTML = item;
         option.setAttribute("value", item);
         year1.appendChild(option);
     });
 
     // Gets the array from divisionKey to dynamicly create html options for a selection form element
-    dataYearsKeys.forEach((item) => {
-        let option = document.createElement('option');
+    dataYearsKeys.forEach(function(item) {
+        var option = document.createElement('option');
         option.innerHTML = item;
         option.setAttribute("value", item);
         year2.appendChild(option);
@@ -139,10 +139,10 @@
     /***********************     NEIGHBOURHOODYEARCOMPARE FORM EVENT HANDLERS START    ****************************/
 
     // Runs events that are triggered by a form fields change of value
-    districtYearCompare.addEventListener("change", () => {
+    districtYearCompare.addEventListener("change", function() {
 
         // This checks if the districts have been choseen so the button can be use to search for the data
-        let neighbourhoodYearList = {};
+        var neighbourhoodYearList = {};
         if (districtYearCompare.value === "Empty") {
             document.querySelector("#yearViewCompareButton").disabled = true;
             document.querySelector("#yearViewCompareButton").classList.add('disabled');
@@ -158,19 +158,19 @@
             neigbourhoodYearCompare.disabled = false;
 
             // We check the nighbourhoods belonging to the district by comparing it to the API data for that district
-            apiData.forEach((item) => {
+            apiData.forEach(function(item) {
                 if (item.attributes.Division === districtYearCompare.value) {
-                    if (!neighbourhoodYearList[`${item.attributes.Neighbourhood}`]) {
-                        neighbourhoodYearList[`${item.attributes.Neighbourhood}`] = item.attributes.Neighbourhood;
+                    if (!neighbourhoodYearList[item.attributes.Neighbourhood]) {
+                        neighbourhoodYearList[item.attributes.Neighbourhood] = item.attributes.Neighbourhood;
                     }
                 }
             });
 
             // We generate dynamicly the html selections for the nighbourhoods belonging to the district by using the Array generated from the above API data
             neigbourhoodYearCompare.innerHTML = '';
-            let neighbourhoodYearListKeys = Object.keys(neighbourhoodYearList).sort();
-            neighbourhoodYearListKeys.forEach((item) => {
-                let option = document.createElement('option');
+            var neighbourhoodYearListKeys = Object.keys(neighbourhoodYearList).sort();
+            neighbourhoodYearListKeys.forEach(function(item) {
+                var option = document.createElement('option');
                 option.innerHTML = item;
                 option.setAttribute("value", item);
                 neigbourhoodYearCompare.appendChild(option);
@@ -183,42 +183,42 @@
     /***********************     NEIGHBOURHOODYEARCOMPARE BUTTON TO UPDATE FORM START    ****************************/
 
     // Compares called data
-    let neighbourHoodYearCompare = (e) => {
+    var neighbourHoodYearCompare = function(e) {
         
         // Stop page reload
         e.preventDefault(); 
 
         // Set to Record all major crime indicators (MCI) from the APIDATA for 1 neighbourhood year
-        let Neighbourhood1MCI = {};
+        var Neighbourhood1MCI = {};
 
         // Loop through to provide all the data on MCI'S and how many
-        apiData.forEach((item) => {
+        apiData.forEach(function(item) {
             if (item.attributes.Neighbourhood === neighbourhoodYearCompare.value && item.attributes.reportedyear === Number(year1.value)) {
-                if (Neighbourhood1MCI[`${item.attributes.MCI}`]) {
-                    Neighbourhood1MCI[`${item.attributes.MCI}`] = Neighbourhood1MCI[`${item.attributes.MCI}`] + 1
+                if (Neighbourhood1MCI[item.attributes.MCI]) {
+                    Neighbourhood1MCI[item.attributes.MCI] = Neighbourhood1MCI[item.attributes.MCI] + 1
                 } else {
-                    Neighbourhood1MCI[`${item.attributes.MCI}`] = 1
+                    Neighbourhood1MCI[item.attributes.MCI] = 1
                 }
             }
         });
 
-        let crimeValues1 = Object.values(Neighbourhood1MCI);
+        var crimeValues1 = Object.values(Neighbourhood1MCI);
 
         // Set to Record all major crime indicators from the APIDATA for 1 neighbourhood year
-        let Neighbourhood2MCI = {};
+        var Neighbourhood2MCI = {};
 
         // Loop through to provide all the data on MCI'S and how many
-        apiData.forEach((item) => {
+        apiData.forEach(function(item) {
             if (item.attributes.Neighbourhood === neighbourhoodYearCompare.value && item.attributes.reportedyear === Number(year2.value)) {
-                if (Neighbourhood2MCI[`${item.attributes.MCI}`]) {
-                    Neighbourhood2MCI[`${item.attributes.MCI}`] = Neighbourhood2MCI[`${item.attributes.MCI}`] + 1
+                if (Neighbourhood2MCI[item.attributes.MCI]) {
+                    Neighbourhood2MCI[item.attributes.MCI] = Neighbourhood2MCI[item.attributes.MCI] + 1
                 } else {
-                    Neighbourhood2MCI[`${item.attributes.MCI}`] = 1
+                    Neighbourhood2MCI[item.attributes.MCI] = 1
                 }
             }
         });
 
-        let crimeValues2 = Object.values(Neighbourhood2MCI);
+        var crimeValues2 = Object.values(Neighbourhood2MCI);
 
         //Update chart data
         yearChartDisplay.data.datasets[0].data = crimeValues1;
@@ -237,22 +237,22 @@
     /***********************     LOCAL STORAGE START    ****************************/
 
     //Year 1 onchange event for saving to local storage
-    year1.addEventListener("change", () => {
+    year1.addEventListener("change", function() {
         localStorage.setItem("Year1StoredValue", year1.value);
     });
 
     //Year 2 onchange event for saving to local storage
-    year2.addEventListener("change", () => {
+    year2.addEventListener("change", function() {
         localStorage.setItem("Year2StoredValue", year2.value);
     });
 
     //districtYearCompare onchange event for saving to local storage
-    districtYearCompare.addEventListener("change", () => {
+    districtYearCompare.addEventListener("change", function() {
         localStorage.setItem("districtYearCompareStoredValue", districtYearCompare.value);
     });
 
     //neighbourhoodYearCompare onchange event for saving to local storage
-    neighbourhoodYearCompare.addEventListener("change", () => {
+    neighbourhoodYearCompare.addEventListener("change", function() {
         localStorage.setItem("neighbourhoodYearCompareStoredValue", neighbourhoodYearCompare.value);
     });
 
