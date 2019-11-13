@@ -11,8 +11,8 @@
     }
 
     // Mobile hides menu on menu item click
-    document.querySelectorAll('#myTopnav a').forEach((item) => {
-        item.addEventListener("click", () => {
+    document.querySelectorAll('#myTopnav a').forEach(function(item) {
+        item.addEventListener("click", function() {
             if (!item.classList.contains("icon") && document.getElementById("myTopnav").classList.contains("responsive")) {
                 document.getElementById("myTopnav").className = "topnav";
             }
@@ -20,7 +20,7 @@
     });
 
     // Smooth Scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
 
@@ -32,11 +32,11 @@
 
     // Active Nav reassignment
 
-    let activeItem = document.querySelectorAll("#myTopnav a");
+    var activeItem = document.querySelectorAll("#myTopnav a");
 
-    activeItem.forEach((userItem) => {
-        userItem.addEventListener("click", () => {
-            activeItem.forEach((userItem) => {
+    activeItem.forEach(function(userItem) {
+        userItem.addEventListener("click", function() {
+            activeItem.forEach(function(userItem) {
                 userItem.classList.remove("active");
             })
             userItem.classList.add("active");
@@ -59,51 +59,51 @@
 
     // Set initial active state
 
-    let h = document.querySelector('#home h1');
-    let d = document.querySelector('#districtView h2');
-    let n = document.querySelector('#neighbourhoodView h2');
-    let y = document.querySelector('#yearView h2');
+    var h = document.querySelector('#home h1');
+    var d = document.querySelector('#districtView h2');
+    var n = document.querySelector('#neighbourhoodView h2');
+    var y = document.querySelector('#yearView h2');
     if (isInViewport(h)) {
-        activeItem.forEach((userItem) => {
+        activeItem.forEach(function(userItem){
             userItem.classList.remove("active");
         });
         document.querySelectorAll('#myTopnav div a')[0].classList.add("active");
     } else if (isInViewport(d)) {
-        activeItem.forEach((userItem) => {
+        activeItem.forEach(function(userItem){
             userItem.classList.remove("active");
         });
         document.querySelectorAll('#myTopnav div a')[1].classList.add("active");
     } else if (isInViewport(n)) {
-        activeItem.forEach((userItem) => {
+        activeItem.forEach(function(userItem){
             userItem.classList.remove("active");
         });
         document.querySelectorAll('#myTopnav div a')[2].classList.add("active");
     } else if (isInViewport(y)) {
-        activeItem.forEach((userItem) => {
+        activeItem.forEach(function(userItem){
             userItem.classList.remove("active");
         });
         document.querySelectorAll('#myTopnav div a')[3].classList.add("active");
     }
 
     // On scroll set Active State
-    document.addEventListener('scroll', () => {
+    document.addEventListener('scroll', function(){
         if (isInViewport(h)) {
-            activeItem.forEach((userItem) => {
+            activeItem.forEach(function(userItem){
                 userItem.classList.remove("active");
             });
             document.querySelectorAll('#myTopnav div a')[0].classList.add("active");
         } else if (isInViewport(d)) {
-            activeItem.forEach((userItem) => {
+            activeItem.forEach(function(userItem){
                 userItem.classList.remove("active");
             });
             document.querySelectorAll('#myTopnav div a')[1].classList.add("active");
         } else if (isInViewport(n)) {
-            activeItem.forEach((userItem) => {
+            activeItem.forEach(function(userItem){
                 userItem.classList.remove("active");
             });
             document.querySelectorAll('#myTopnav div a')[2].classList.add("active");
         } else if (isInViewport(y)) {
-            activeItem.forEach((userItem) => {
+            activeItem.forEach(function(userItem){
                 userItem.classList.remove("active");
             });
             document.querySelectorAll('#myTopnav div a')[3].classList.add("active");

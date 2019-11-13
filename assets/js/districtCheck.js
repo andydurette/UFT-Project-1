@@ -12,8 +12,8 @@ var horizontalBarChartData = {
 };
 
 /* Horizontal Bar Build Chart Start */
-let ctx = document.getElementById("modalChart").getContext('2d');
-let districtChartDisplay = new Chart(ctx,{
+var ctx = document.getElementById("modalChart").getContext('2d');
+var districtChartDisplay = new Chart(ctx,{
     type: 'horizontalBar',
     data: horizontalBarChartData,
     options: {
@@ -36,24 +36,28 @@ let districtChartDisplay = new Chart(ctx,{
   });
 
 
-let callMCI = (district) => {  
+var callMCI = function(district) {  
 
   // Set to Record all major crime indicators (MCI) from the APIDATA
-  let MCI = {}
+  var MCI = {}
 
   // Loop through to provide all the data on MCI'S and how many
-  apiData.forEach((item) =>{
+  apiData.forEach(function(item){
     if ( item.attributes.Division === district ){
-      if (MCI[`${item.attributes.MCI}`]){
-        MCI[`${item.attributes.MCI}`] = MCI[`${item.attributes.MCI}`] + 1
+      if (MCI[item.attributes.MCI]){
+        MCI[item.attributes.MCI] = MCI[item.attributes.MCI] + 1
       }else{
-        MCI[`${item.attributes.MCI}`] = 1
+        MCI[item.attributes.MCI] = 1
        }
     }});
 
     // Provides data from loop for updading chart data
-    let crimeValues = Object.values(MCI);
-    let crimeTotal = Object.values(MCI).reduce((a, b) => a + b, 0)
+    var crimeValues = Object.values(MCI);
+    var crimeTotal = 0;
+    Object.values(MCI).forEach(function(item){
+      crimeTotal = crimeTotal + item
+    })
+ 
      
     //Update chart data
     districtChartDisplay.data.datasets[0].data = crimeValues;
@@ -68,7 +72,7 @@ document.getElementById("modal").classList.remove("hide");
 document.getElementById("modalOverlay").classList.remove("hide"); 
 
 // Hide Modal
-document.getElementById('close-button').addEventListener("click", () => {
+document.getElementById('close-button').addEventListener("click", function() {
   document.getElementById("modal").classList.add("hide");
   document.getElementById("modalOverlay").classList.add("hide");
 });
