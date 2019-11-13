@@ -28,7 +28,10 @@ var dataFetch = function() {
                 dataFetch();
             } else {
                 loadHide();
-                apiData = apiData.flat();
+                //apiData = apiData.flat();
+                var myNewArray = [].concat.apply([], apiData);
+                apiData = myNewArray;
+                //console.log(myNewArray);
                 // Uncomment below to see all the API's data loaded into page
                 //console.log(apiData);
 

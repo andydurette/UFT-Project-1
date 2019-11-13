@@ -212,6 +212,8 @@
     document.querySelector("#neighbourhoodCompareButton").addEventListener("click", neighbourHoodCompare);
     /***********************     NEIGHBOURHOODCOMPARE BUTTON TO UPDATE FORM END    ****************************/
     /***********************     LOCAL STORAGE START    ****************************/
+
+    
     //Year 1 onchange event for saving to local storage
     district1.addEventListener("change", function() {
         localStorage.setItem("district1StoredValue", district1.value);
