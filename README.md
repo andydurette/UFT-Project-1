@@ -2,20 +2,21 @@
 
 **Project 1 for University of Toronto coding Bootcamp.**
 
-**Live Demo:** https://andydurette.github.io/Toronto-Neighborhood-Safety/ 
+**Live Demo:** https://andydurette.github.io/UFT-Project-1/ 
 
 **API Data Provided from:** http://data.torontopolice.on.ca/pages/open-data 
 
-**Original Repo:** https://github.com/andydurette/UFT-Project-1 
-
 **Project Details**
-This project was made with one thing in mind how safe are Toronto neighbourhoods, it's not easy to answer as what quantifies safe in the first place? I though to take a few different approaches on how to question this question with the toronto Police's open crime Data which details all the crime in toronto by police district.
 
-1. By comparing different police districts to each other via google maps.
-2. Comparing different neighboods in Toronto to each other.
-3. By comparing the same neigbourhood year to year.
+This project focused on using everything we have learnt in the course thus far as a team using git version-control system for tracking changes.
 
-The hope of the project is to provide the end user with the insight into how best to go about being aware of crime. The user could use it to better protect themselves or move out of a worsening neighbourhood.
+**Team:**  Andy Durette, Maryam Kazemi, Brad Kralus, Gavin Wimalachandran and Sharon Yang
+
+**Challenges and technologies used in no particular order.**
+
+**Toronto police open data portal:** Taking and parsing the data.  
+**Google Maps API:** Mapping police portal data by police districts.</br>
+**Using Chart.js:** Learning to create and update charts.
 
 
 ![markdown-preview-image](assets/images/markdown-preview-image.png)
