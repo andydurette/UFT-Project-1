@@ -8,9 +8,11 @@ This project focused on using everything we have learnt in the course thus far a
 
 **Application Features**
 
-  *Full map of Toronto by division and chart of crimes from 2014-2018 </br>
-  *Comparison view of the different neighbourhoods in toronto </br>
-  *Comparison view of neighbourhoods year to year
+  * Full map of Toronto by division and chart of crimes from 2014-2018 </br>
+  * Comparison view of the different neighbourhoods in toronto </br>
+  * Comparison view of neighbourhoods year to year
+  
+  
 
 **Team:**  Andy Durette, Maryam Kazemi, Brad Kralus, Gavin Wimalachandran and Sharon Yang
 
