@@ -2,9 +2,7 @@
 
 **Project 1 for University of Toronto coding Bootcamp.**
 
-**Live Demo:** https://andydurette.github.io/UFT-Project-1/ 
 
-**API Data Provided from:** http://data.torontopolice.on.ca/pages/open-data 
 
 **Project Details**
 
@@ -14,9 +12,10 @@ This project focused on using everything we have learnt in the course thus far a
 
 **Challenges and technologies used in no particular order.**
 
-**Toronto police open data portal:** Taking and parsing the data.  
-**Google Maps API:** Mapping police portal data by police districts.</br>
-**Using Chart.js:** Learning to create and update charts.
+* [Toronto police open data portal](http://data.torontopolice.on.ca/pages/open-data) - Taking and parsing the data.
+* [Google Maps API](https://developers.google.com/maps/documentation) - Mapping police portal data by police districts.</br>
+* [Chart.js](https://www.chartjs.org/) - Learning to create and update charts.
 
+**Live Demo:** https://andydurette.github.io/UFT-Project-1/ 
 
 ![markdown-preview-image](assets/images/markdown-preview-image.png)
