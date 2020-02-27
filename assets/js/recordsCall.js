@@ -16,7 +16,7 @@ var scriptAdd = function (src) {
 
 // Fetch all APIDATA for the application
 var dataFetch = function() {
-    fetch("https://services.arcgis.com/S9th0jAJ7bqgIRjw/arcgis/rest/services/MCI_2014_to_2018/FeatureServer/0/query?where=1%3D1&outFields=reportedyear,MCI,Division,Neighbourhood&outSR=4326&resultRecordCount=50000&resultType=standard&resultOffset=" + resultOffSet + "&f=json")
+    fetch("https://services.arcgis.com/S9th0jAJ7bqgIRjw/arcgis/rest/services/MCI_2014_to_2019/FeatureServer/0/query?where=1%3D1&outFields=reportedyear,MCI,Division,Neighbourhood&outSR=4326&resultRecordCount=50000&resultType=standard&resultOffset=" + resultOffSet + "&f=json")
         .then(function(resp){ 
             return resp.json()
         }).then(function(data){
@@ -46,7 +46,7 @@ var dataFetch = function() {
 }
 
 // Checks APIDATA length to know how many times to loop to call it all
-fetch("https://services.arcgis.com/S9th0jAJ7bqgIRjw/arcgis/rest/services/MCI_2014_to_2018/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json")
+fetch("https://services.arcgis.com/S9th0jAJ7bqgIRjw/arcgis/rest/services/MCI_2014_to_2019/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json")
     .then(function(resp){
         return resp.json()
     }).then(function(data){
